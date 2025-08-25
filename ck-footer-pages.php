@@ -32,15 +32,14 @@
             <a href="<?php bloginfo('url'); ?>/نمایندگی-های-فروش/"><li>نمایندگی‌های فروش</li></a>
             <a href="<?php bloginfo('url') ?>/هنرستان/پایه-دهم/فیلم-آموزشی-پایه-دهم/"><li>فیلم های آموزشی</li></a>
             <a href="<?php bloginfo('url') ?>/کارنامه-قبول-شدگان-کنکور-هنرستان/"><li>کارنامه های رتبه های قبولی</li></a>
-            <a href="<?php bloginfo('ur') ?>/سوالات-کنکور-هنرستان-99/"><li>سوالات کنکور 99 هنرستان</li></a>
             <a href="<?php bloginfo('url') ?>/مشاوره-های-هنرستان/"><li>مشاوره تحصیلی</li></a>
 
         </ul>
         <ul>
             <li class="ck-first">خرید محصولات</li>
-            <a href="<?php bloginfo('url') ?>/دوره-ابتدایی/"><li>دوره ابتدایی</li></a>
-            <a href="<?php bloginfo('url') ?>/دوره-اول-متوسطه/"><li>دوره اول متوسطه</li></a>
             <a href="<?php bloginfo('url') ?>/هنرستان/"> <li>هنرستان</li></a>
+            <a href="<?php bloginfo('url') ?>/آزمون-استخدامی/"> <li>آزمون استخدامی</li></a>
+            <a href="<?php bloginfo('url') ?>/دوره-اول-متوسطه/"><li>دوره اول متوسطه</li></a>
             <a href="<?php bloginfo('url') ?>/کارشناسی-ناپیوسته/"><li>کارشناسی ناپیوسته</li></a>
             <a href="<?php bloginfo('url') ?>/نظام-قدیم/"><li>کتاب های نظام قدیم</li></a>
         </ul>

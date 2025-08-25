@@ -439,7 +439,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <?php $i++;
             } ?>
             <li class="ck-first"><a href="<?php bloginfo('url') ?>/مصاحبه-با-رتبه-یک-الکتروتکنیک/">
-                    <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i>1401 مصاحبه با رتبه ۱ کنکور الکتروتکنیک
+                    <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i> مصاحبه با رتبه ۱ کنکور الکتروتکنیک
                     <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
             </li>
             <li class="ck-first"><a href="<?php bloginfo('url') ?>/هنرستان/پایه-دهم/فیلم-آموزشی-پایه-دهم/">
@@ -450,18 +450,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i>سوالات متداول
                     <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
             </li>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/نظام-قدیم/">
-                    <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i>کتاب های نظام قدیم
-                    <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
-            </li>
+            
             <li class="ck-first"><a href="<?php bloginfo('url') ?>/فیلم-های-آماده-برای-فروش/">
                     <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i>فیلم های آماده برای فروش
                     <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
             </li>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/مصاحبه-با-رتبه-های-برتر-کنکور/">
-                    <i class="fa fa-angle-down ck-halat ck-5" aria-hidden="true"></i>مصاحبه با رتبه های برتر کنکور 98
-                    <i class="fa fa-circle ck-5" aria-hidden="true"></i></a>
-            </li>
+            
             <li class="ck-first"><a href="<?php bloginfo('url') ?>/کارنامه-قبول-شدگان-کنکور-هنرستان/">
                     <i class="fa fa-angle-down ck-halat ck-4" aria-hidden="true"></i>کارنامه رتبه های قبولی
                     <i class="fa fa-circle ck-4" aria-hidden="true"></i></a>
@@ -508,10 +502,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <i class="fa fa-angle-down ck-halat ck-5" aria-hidden="true"></i>تماس با ما
                     <i class="fa fa-circle ck-5" aria-hidden="true"></i></a>
             </li>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/سوالات-کنکور-هنرستان/">
-                    <i class="fa fa-angle-down ck-halat ck-4" aria-hidden="true"></i>سوالات کنکور 98
-                    <i class="fa fa-circle ck-3" aria-hidden="true"></i></a>
-            </li>
+            
             <?php
             if (is_user_logged_in()) {
                 ?>

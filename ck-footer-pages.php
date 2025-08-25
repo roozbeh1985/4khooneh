@@ -81,7 +81,7 @@
 
     <div class="clear"></div>
     <div class="ck-footer-low">
-        <h3> کلیه حقوق مادی و معنوی این وب سایت متعلق به انتشارات چهارخونه می باشد.</h3>
+        <div> کلیه حقوق مادی و معنوی این وب سایت متعلق به انتشارات چهارخونه می باشد.</div>
     </div>
 
     <div id="ryBlureBack" class="ryMdal"></div>

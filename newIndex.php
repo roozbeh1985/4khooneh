@@ -108,7 +108,7 @@ if (isset($_POST['rysubmit'])) {
                             <div class="firstpage__header">
                                 <div class="container">
                                     <div class="header_main">
-                                        <h1 class="header_main--title mb-4 " style="font-size:18px">انتشارات چهارخونه ناشر تخصصی آزمون استخدامی/هنرستان</h1>
+                                        <h1 class="header_main--title mb-4 " style="font-size:18px">انتشارات چهارخونه ناشر تخصصی آزمون استخدامی|هنرستان</h1>
                                     </div>
                                     <div class="row">
                                         <?php

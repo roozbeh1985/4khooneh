@@ -54,6 +54,10 @@
             <li><i class="fab fa-facebook-square" aria-hidden="true"
                    style="font-size: 26px; margin-left: 10px"> </i>فیسبوک
             </li>
+            <a href="https://t.me/charkhooneh" target="_blank"><li>
+                <i class="fab fa-play" aria-hidden="true"
+                    style="font-size: 26px; margin-left: 10px"> </i>آپارات
+                </li></a>
 
         </ul>
         <div class="clear"></div>

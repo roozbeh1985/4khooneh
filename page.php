@@ -198,8 +198,8 @@ setPostViews(get_the_ID());
                                                                             $ii++;
                                                                         }
                                                                         ?>
-                                                                        <del><h3><?php echo number_format($r_p[0]); ?>
-                                                                                تومان</h3>
+                                                                        <del><div><?php echo number_format($r_p[0]); ?>
+                                                                                تومان</div>
                                                                         </del>
                                                                         <?php
                                                                     } else {
@@ -211,18 +211,18 @@ setPostViews(get_the_ID());
 
 
                                                                     <div class="ck-new-price">
-                                                                        <h3><?php echo number_format($product->get_price()); ?>
-                                                                            تومان</h3></div>
+                                                                        <div><?php echo number_format($product->get_price()); ?>
+                                                                            تومان</div></div>
                                                                 <?php } else { ?>
                                                                     <div class="ck-old-price">
-                                                                        <h3><?php echo number_format($product->get_price()); ?>
-                                                                            تومان</h3></div>
+                                                                        <div><?php echo number_format($product->get_price()); ?>
+                                                                            تومان</div></div>
                                                                 <?php } ?>
 
                                                             </div>
 
                                                         <?php } else { ?>
-                                                            <div class="ck-new-price"><h3>مشاهده جزئیات</h3>
+                                                            <div class="ck-new-price"><div>مشاهده جزئیات</div>
                                                             </div>
                                                         <?php } ?>
                                                     </div>
@@ -332,21 +332,21 @@ setPostViews(get_the_ID());
                                                     ?>
                                                     <div class="ck-old-price">
                                                         <?php if (((1 - ((int)($final_price) / (int)($regular_price))) * 100) != 0) { ?>
-                                                            <del><h3><?php echo number_format($regular_price); ?>
-                                                                    تومان</h3></del>
+                                                            <del><div><?php echo number_format($regular_price); ?>
+                                                                    تومان</div></del>
                                                             <div class="ck-new-price">
-                                                                <h3><?php echo number_format($final_price); ?>تومان</h3>
+                                                                <div><?php echo number_format($final_price); ?>تومان</div>
                                                             </div>
                                                         <?php } else { ?>
                                                             <div class="ck-old-price">
-                                                                <h3><?php echo number_format($regular_price); ?>
-                                                                    تومان</h3></div>
+                                                                <div><?php echo number_format($regular_price); ?>
+                                                                    تومان</div></div>
                                                         <?php } ?>
 
                                                     </div>
 
                                                 <?php } else { ?>
-                                                    <div class="ck-new-price"><h3>مشاهده جزئیات</h3>
+                                                    <div class="ck-new-price"><div>مشاهده جزئیات</div>
                                                     </div>
                                                 <?php } ?>
                                             </div>
@@ -411,7 +411,7 @@ setPostViews(get_the_ID());
                             </div>
                             <div class="ck-comment-header">
                                 <img src="<?php bloginfo('url'); ?>/img/comment-icom.png" alt="نظرات">
-                                <h3>ارسال دیدگاه(نظرات، انتقادات و پیشنهادات خود را با ما در میان بگذارید.)</h3>
+                                <div>ارسال دیدگاه(نظرات، انتقادات و پیشنهادات خود را با ما در میان بگذارید.)</div>
                             </div>
 
 

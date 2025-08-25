@@ -55,7 +55,7 @@
                    style="font-size: 26px; margin-left: 10px"> </i>فیسبوک
             </li>
             <a href="https://aparat.com/4khooneh" target="_blank"><li>
-                <i class="fas fa-play" aria-hidden="true"
+                <i class="fa fa-play" aria-hidden="true"
                     style="font-size: 26px; margin-left: 10px"> </i>آپارات
                 </li></a>
 

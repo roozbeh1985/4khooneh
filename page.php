@@ -177,7 +177,7 @@ setPostViews(get_the_ID());
                                                 <div class="ck-kharid">
                                                     <p><?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?></p>
 
-                                                    <div class="ck-gheymat ck-no-aadd pt-1">
+                                                    <div class="ck-gheymat ck-no-aadd pt-2">
                                                         <?php if ($product->is_in_stock()) {
                                                             ?>
                                                             <div class="ck-old-price">

@@ -5,7 +5,7 @@
 </a>
 <a href="<?php bloginfo('url') ?>/مشاوره-های-هنرستان/">
     <div class="ck-page-right-menu-img">
-        <img alt="آزمون استخدامی" src="<?php bloginfo('url'); ?>/wp-content/uploads/2025/08/moshavere-min.jpg">
+        <img alt="آزمون استخدامی" src="<?php bloginfo('url'); ?>/wp-content/uploads/2025/08/moshaver.jpg">
     </div>
 </a>
 <a href="<?php bloginfo('url') ?>/آزمون-استخدامی/">

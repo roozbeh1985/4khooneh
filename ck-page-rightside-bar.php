@@ -3,6 +3,11 @@
         <img alt="آزمون استخدامی" src="<?php bloginfo('url'); ?>/wp-content/uploads/2024/11/manabe.jpg">
     </div>
 </a>
+<a href="<?php bloginfo('url') ?>/مشاوره-های-هنرستان/">
+    <div class="ck-page-right-menu-img">
+        <img alt="آزمون استخدامی" src="<?php bloginfo('url'); ?>/wp-content/uploads/2025/08/moshavere-min.jpg">
+    </div>
+</a>
 <a href="<?php bloginfo('url') ?>/آزمون-استخدامی/">
     <div class="ck-page-right-menu-img">
         <img alt="آزمون استخدامی" src="<?php bloginfo('url'); ?>/wp-content/uploads/2024/11/talaei.jpg">

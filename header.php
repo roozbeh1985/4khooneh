@@ -3,14 +3,14 @@
 <head>
    
 <!-- Google tag (gtag.js) -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-85TD7Y1BB7"></script>
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-85TD7Y1BB7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-85TD7Y1BB7');
-</script> -->
+</script> 
     <meta charset="UTF-8">
     <title><?php wp_title(''); ?></title>
     <meta name="author" content="roozbeh yeganeh 09125871319"/>
@@ -29,13 +29,13 @@
 	<link rel="icon" type="image/x-icon" href="https://4khooneh.org/favicon.ico">	
 
 <!-- Google Tag Manager -->
-<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+ <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TW9C7H4M');</script> -->
+})(window,document,'script','dataLayer','GTM-TW9C7H4M');</script> 
 <!-- End Google Tag Manager -->
-    <!-- <script>
+    <script>
         !function (t, e, n) {
             t.yektanetAnalyticsObject = n, t[n] = t[n] || function () {
                 t[n].q.push(arguments)
@@ -45,7 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             s.id = "ua-script-OcDGDnhw"; s.dataset.analyticsobject = n; s.async = 1; s.type = "text/javascript";
             s.src = "https://cdn.yektanet.com/rg_woebegone/scripts_v3/OcDGDnhw/rg.complete.js?v=" + r, c.parentNode.insertBefore(s, c)
         }(window, document, "yektanet");
-    </script> -->
+    </script> 
     <!--[if IE]>
     <script type="text/javascript">
         var console = {
@@ -118,8 +118,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
     <?php wp_head(); ?>
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/risponsive.css?v=1.3.1.54">
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111352272-1"></script> -->
-    <!-- <script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111352272-1"></script>
+    <script>
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
@@ -129,7 +129,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         gtag('js', new Date());
 
         gtag('config', 'UA-111352272-1');
-    </script> -->
+    </script> 
     <script src="<?php bloginfo('template_url'); ?>/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>

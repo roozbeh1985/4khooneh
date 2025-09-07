@@ -727,27 +727,64 @@ function woocommerceir_exclude_product_from_product_promotions_frontend($valid, 
     return $valid;
 }
 //-------------------custom Field
-function show_all_post_meta($content) {
-    if (is_single()) {
-        global $post;
-        $all_meta = get_post_meta($post->ID);
+function ry_show_all_meta_box() {
+    global $post;
 
-        if (!empty($all_meta)) {
-            $content .= '<div style="background:#f1f1f1;padding:15px;margin:20px 0;border:1px solid #ccc">';
-            $content .= '<h3>🔑 متاهای این پست:</h3><ul>';
-            foreach ($all_meta as $key => $values) {
-                foreach ($values as $value) {
-                    $content .= '<li><b>' . esc_html($key) . '</b> : ' . esc_html($value) . '</li>';
-                }
+    $custom_fields = get_post_meta($post->ID);
+
+    echo '<div style="max-height:400px;overflow:auto;">';
+    if ($custom_fields) {
+        echo '<table style="width:100%;border-collapse:collapse;">';
+        echo '<tr><th style="border:1px solid #ccc;padding:5px;">Meta Key</th><th style="border:1px solid #ccc;padding:5px;">Meta Value</th></tr>';
+        foreach ($custom_fields as $key => $values) {
+            foreach ($values as $value) {
+                $field_name = 'ry_meta_' . md5($key); // برای ذخیره یکتا
+                echo '<tr>';
+                echo '<td style="border:1px solid #ccc;padding:5px;">' . esc_html($key) . '</td>';
+                echo '<td style="border:1px solid #ccc;padding:5px;">';
+                echo '<textarea style="width:100%;height:60px;" name="' . esc_attr($field_name) . '">' . esc_textarea($value) . '</textarea>';
+                echo '<input type="hidden" name="' . esc_attr($field_name . "_key") . '" value="' . esc_attr($key) . '">';
+                echo '</td>';
+                echo '</tr>';
             }
-            $content .= '</ul></div>';
-        } else {
-            $content .= '<div style="background:#fee;padding:15px;margin:20px 0;border:1px solid #c00">⛔ هیچ متایی برای این پست وجود ندارد.</div>';
+        }
+        echo '</table>';
+    } else {
+        echo '<p>هیچ متایی برای این نوشته وجود ندارد.</p>';
+    }
+    echo '</div>';
+}
+
+function ry_register_all_meta_box() {
+    $screens = ['post', 'page'];
+    foreach ($screens as $screen) {
+        add_meta_box(
+            'ry_all_meta_box',
+            '🔑 همه متاها',
+            'ry_show_all_meta_box',
+            $screen,
+            'normal',
+            'default'
+        );
+    }
+}
+add_action('add_meta_boxes', 'ry_register_all_meta_box');
+
+
+function ry_save_all_meta_box($post_id) {
+    foreach ($_POST as $field => $value) {
+        if (strpos($field, 'ry_meta_') === 0 && !str_ends_with($field, '_key')) {
+            $key_field = $field . "_key";
+            if (isset($_POST[$key_field])) {
+                $meta_key = sanitize_text_field($_POST[$key_field]);
+                $meta_value = sanitize_textarea_field($value);
+                update_post_meta($post_id, $meta_key, $meta_value);
+            }
         }
     }
-    return $content;
 }
-add_filter('the_content', 'show_all_post_meta');
+add_action('save_post', 'ry_save_all_meta_box');
+
 
 
 

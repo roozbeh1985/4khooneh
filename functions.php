@@ -811,5 +811,34 @@ function ry_save_all_meta_box($post_id) {
 }
 add_action('save_post', 'ry_save_all_meta_box');
 
+//--------------emoji woocommerce--*---------
+add_filter('manage_edit-shop_order_columns', 'add_product_type_column', 20);
+function add_product_type_column($columns) {
+    $new_columns = array();
+    foreach ($columns as $key => $column) {
+        $new_columns[$key] = $column;
+        if ($key === 'order_total') {
+            $new_columns['product_type'] = 'نوع محصول';
+        }
+    }
+    return $new_columns;
+}
+
+add_action('manage_shop_order_posts_custom_column', 'show_product_type_column_content', 10, 2);
+function show_product_type_column_content($column, $post_id) {
+    if ($column === 'product_type') {
+        $order = wc_get_order($post_id);
+        $types = array();
+        foreach ($order->get_items() as $item) {
+            $product_name = strtolower($item->get_name());
+            if (strpos($product_name, 'فیلم') !== false) $types['فیلم'] = '🎬';
+            if (strpos($product_name, 'کلاس') !== false) $types['کلاس'] = '🏫';
+            if (strpos($product_name, 'آزمون') !== false) $types['آزمون'] = '📝';
+        }
+        if (empty($types)) echo '📚';
+        else echo implode(' ', $types);
+    }
+}
+
 
 ?>

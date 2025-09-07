@@ -727,7 +727,8 @@ function woocommerceir_exclude_product_from_product_promotions_frontend($valid, 
     return $valid;
 }
 //-------------------custom Field-----------------
-function ry_show_all_meta_box() {
+function ry_show_all_meta_box()
+{
     global $post;
 
     $custom_fields = get_post_meta($post->ID);
@@ -753,7 +754,7 @@ function ry_show_all_meta_box() {
                 echo '<td style="border:1px solid #ccc;padding:5px;">';
 
                 if ($is_serialized) {
-                    echo '<textarea style="width:100%;height:120px;" name="' . esc_attr($field_name) . '">' . esc_textarea(implode("\n", (array)$decoded)) . '</textarea>';
+                    echo '<textarea style="width:100%;height:120px;" name="' . esc_attr($field_name) . '">' . esc_textarea(implode("\n", (array) $decoded)) . '</textarea>';
                     echo '<input type="hidden" name="' . esc_attr($field_name . "_serialized") . '" value="1">';
                 } else {
                     echo '<textarea style="width:100%;height:60px;" name="' . esc_attr($field_name) . '">' . esc_textarea($value) . '</textarea>';
@@ -773,7 +774,8 @@ function ry_show_all_meta_box() {
 }
 
 
-function ry_register_all_meta_box() {
+function ry_register_all_meta_box()
+{
     $screens = ['post', 'page'];
     foreach ($screens as $screen) {
         add_meta_box(
@@ -788,7 +790,8 @@ function ry_register_all_meta_box() {
 }
 add_action('add_meta_boxes', 'ry_register_all_meta_box');
 
-function ry_save_all_meta_box($post_id) {
+function ry_save_all_meta_box($post_id)
+{
     foreach ($_POST as $field => $value) {
         if (strpos($field, 'ry_meta_') === 0 && !str_ends_with($field, '_key') && !str_ends_with($field, '_serialized')) {
             $key_field = $field . "_key";
@@ -813,7 +816,8 @@ add_action('save_post', 'ry_save_all_meta_box');
 
 //--------------emoji woocommerce--*---------
 add_filter('manage_edit-shop_order_columns', 'add_product_type_column_after_date', 20);
-function add_product_type_column_after_date($columns) {
+function add_product_type_column_after_date($columns)
+{
     $new_columns = array();
     foreach ($columns as $key => $column) {
         $new_columns[$key] = $column;
@@ -825,28 +829,37 @@ function add_product_type_column_after_date($columns) {
 }
 
 add_action('manage_shop_order_posts_custom_column', 'show_product_type_column_content', 10, 2);
-function show_product_type_column_content($column, $post_id) {
+function show_product_type_column_content($column, $post_id)
+{
     if ($column === 'product_type') {
         $order = wc_get_order($post_id);
         $types = array();
         foreach ($order->get_items() as $item) {
             $product_name = strtolower($item->get_name());
-            if (strpos($product_name, 'فیلم') !== false) $types['فیلم'] = '🎬';
-            if (strpos($product_name, 'کلاس') !== false) $types['کلاس'] = '🏫';
-            if (strpos($product_name, 'آزمون آزمایشی') !== false) $types['آزمون'] = '📝';
+            if (strpos($product_name, 'فیلم') !== false)
+                $types['فیلم'] = '🎬';
+            if (strpos($product_name, 'کلاس') !== false)
+                $types['کلاس'] = '🏫';
+            if (strpos($product_name, 'آزمون آزمایشی') !== false)
+                $types['آزمون'] = '📝';
         }
-        if (empty($types)) $types[] = '📚';
+        if (empty($types))
+            $types[] = '📚';
         echo '<span class="product-type-emojis">' . implode(' ', $types) . '</span>';
     }
 }
 
-add_action('admin_head', function() {
+add_action('admin_head', function () {
     echo '<style>
     .column-product_type .product-type-emojis {
         font-size: 2.5em;
         line-height: 1;
         font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
         display: inline-block;
+    }
+        .img.wp-smiley, img.emoji{
+        width: 31px !important;
+        height: 31px !important;
     }
     </style>';
 });

@@ -726,7 +726,51 @@ function woocommerceir_exclude_product_from_product_promotions_frontend($valid, 
     }
     return $valid;
 }
-//-------------------
-add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+//-------------------custom Field
+
+
+function my_custom_meta_box() {
+    add_meta_box(
+        'my_custom_field_box',
+        'زمینه دلخواه من',
+        'my_custom_field_html',
+        'post',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'my_custom_meta_box');
+
+function my_custom_field_html($post) {
+    $value = get_post_meta($post->ID, '_my_custom_field', true);
+    wp_nonce_field('my_custom_field_nonce', 'my_custom_field_nonce_field');
+    ?>
+    <input type="text" name="my_custom_field_input" id="my_custom_field_input" value="<?php echo esc_attr($value); ?>" style="width:100%;" />
+    <?php
+}
+
+function my_custom_field_save($post_id) {
+    if (!isset($_POST['my_custom_field_nonce_field']) || !wp_verify_nonce($_POST['my_custom_field_nonce_field'], 'my_custom_field_nonce')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (!current_user_can('edit_post', $post_id)) return;
+    if (isset($_POST['my_custom_field_input'])) {
+        update_post_meta($post_id, '_my_custom_field', sanitize_text_field($_POST['my_custom_field_input']));
+    }
+}
+add_action('save_post', 'my_custom_field_save');
+
+function show_my_custom_field($content) {
+    global $post;
+    $value = get_post_meta($post->ID, '_my_custom_field', true);
+    if ($value) {
+        $content .= '<div class="my-custom-field">' . esc_html($value) . '</div>';
+    }
+    return $content;
+}
+add_filter('the_content', 'show_my_custom_field');
+
+
 
 ?>

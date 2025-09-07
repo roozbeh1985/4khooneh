@@ -817,7 +817,7 @@ function add_product_type_column_after_date($columns) {
     $new_columns = array();
     foreach ($columns as $key => $column) {
         $new_columns[$key] = $column;
-        if ($key === 'order_date') { // بعد از ستون تاریخ
+        if ($key === 'order_date') {
             $new_columns['product_type'] = 'نوع محصول';
         }
     }
@@ -843,11 +843,13 @@ function show_product_type_column_content($column, $post_id) {
 add_action('admin_head', function() {
     echo '<style>
     .column-product_type .product-type-emojis {
-        font-size: 2em;
+        font-size: 2.5em;
         line-height: 1.5em;
+        display: block;
     }
     </style>';
 });
+
 
 
 

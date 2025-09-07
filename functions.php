@@ -831,14 +831,15 @@ function show_product_type_column_content($column, $post_id) {
         $types = array();
         foreach ($order->get_items() as $item) {
             $product_name = strtolower($item->get_name());
-            if (strpos($product_name, 'فیلم') !== false) $types['فیلم'] = '🎬';
-            if (strpos($product_name, 'کلاس') !== false) $types['کلاس'] = '🏫';
-            if (strpos($product_name, 'آزمون') !== false) $types['آزمون'] = '📝';
+            if (strpos($product_name, 'فیلم') !== false) $types['فیلم'] = '<span style="font-size:2em;">🎬</span>';
+            if (strpos($product_name, 'کلاس') !== false) $types['کلاس'] = '<span style="font-size:2em;">🏫</span>';
+            if (strpos($product_name, 'آزمون آزمایشی') !== false) $types['آزمون'] = '<span style="font-size:2em;">📝</span>';
         }
-        if (empty($types)) echo '📚';
+        if (empty($types)) echo '<span style="font-size:2em;">📚</span>';
         else echo implode(' ', $types);
     }
 }
+
 
 
 ?>

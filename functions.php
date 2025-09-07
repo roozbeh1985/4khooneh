@@ -737,8 +737,14 @@ function ry_show_all_meta_box() {
         echo '<table style="width:100%;border-collapse:collapse;">';
         echo '<tr><th style="border:1px solid #ccc;padding:5px;">Meta Key</th><th style="border:1px solid #ccc;padding:5px;">Meta Value</th></tr>';
         foreach ($custom_fields as $key => $values) {
+            if (strpos($key, '_') === 0 || stripos($key, 'yoast') !== false || stripos($key, 'wpdiscuz') !== false) {
+                continue;
+            }
+
             foreach ($values as $value) {
-                $field_name = 'ry_meta_' . md5($key); 
+                $field_name = 'ry_meta_' . md5($key);
+
+                // تست serialize
                 $decoded = @unserialize($value);
                 $is_serialized = ($decoded !== false || $value === 'b:0;');
 
@@ -765,6 +771,7 @@ function ry_show_all_meta_box() {
     }
     echo '</div>';
 }
+
 
 function ry_register_all_meta_box() {
     $screens = ['post', 'page'];

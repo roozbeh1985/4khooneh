@@ -844,12 +844,12 @@ add_action('admin_head', function() {
     echo '<style>
     .column-product_type .product-type-emojis {
         font-size: 2.5em;
-        line-height: 1.5em;
-        display: block;
+        line-height: 1;
+        font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+        display: inline-block;
     }
     </style>';
 });
-
 
 
 

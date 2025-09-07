@@ -728,14 +728,14 @@ function woocommerceir_exclude_product_from_product_promotions_frontend($valid, 
 }
 //-------------------custom Field
 
-function show_all_page_meta($content) {
-    if (is_page()) {
+function show_all_post_meta($content) {
+    if (is_singular()) {
         global $post;
         $all_meta = get_post_meta($post->ID);
 
         if ($all_meta && is_array($all_meta)) {
-            $content .= '<div style="background:#f1f1f1;padding:15px;margin:20px 0;border:1px solid #ccc">';
-            $content .= '<h3>🔑 همه متاهای این صفحه:</h3><ul>';
+            $content .= '<div style="background:#f9f9f9;padding:15px;margin:20px 0;border:1px solid #ccc">';
+            $content .= '<h3>🔑 همه متاهای این نوشته/برگه:</h3><ul>';
 
             foreach ($all_meta as $key => $values) {
                 foreach ($values as $value) {
@@ -745,12 +745,13 @@ function show_all_page_meta($content) {
 
             $content .= '</ul></div>';
         } else {
-            $content .= '<div style="background:#fee;padding:15px;margin:20px 0;border:1px solid #c00">⛔ هیچ متایی برای این صفحه پیدا نشد.</div>';
+            $content .= '<div style="background:#fee;padding:15px;margin:20px 0;border:1px solid #c00">⛔ هیچ متایی پیدا نشد.</div>';
         }
     }
     return $content;
 }
-add_filter('the_content', 'show_all_page_meta');
+add_filter('the_content', 'show_all_post_meta');
+
 
 
 ?>

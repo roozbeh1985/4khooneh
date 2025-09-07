@@ -71,8 +71,9 @@ function data_fetch()
 {
     if (substr($_POST['keyword'], 0, 1) == '#') {
         $the_query = new WP_Query(array('posts_per_page' => -1, 'tag' => esc_attr(substr($_POST['keyword'], 1)), 'post_type' => 'any'));
-        if ($the_query->have_posts()) :
-            while ($the_query->have_posts()): $the_query->the_post(); ?>
+        if ($the_query->have_posts()):
+            while ($the_query->have_posts()):
+                $the_query->the_post(); ?>
 
                 <h2 class="ry-search-content-title">
                     <a class="float-right" href="<?php echo the_permalink() ?>"><?php the_title() ?></a>
@@ -86,8 +87,9 @@ function data_fetch()
 
     } else {
         $the_query = new WP_Query(array('posts_per_page' => -1, 's' => esc_attr($_POST['keyword']), 'post_type' => 'any'));
-        if ($the_query->have_posts()) :
-            while ($the_query->have_posts()): $the_query->the_post(); ?>
+        if ($the_query->have_posts()):
+            while ($the_query->have_posts()):
+                $the_query->the_post(); ?>
                 <h2 class="ry-search-content-title">
                     <a class="float-right" href="<?php echo the_permalink() ?>"><?php the_title(); ?></a>
                 </h2>
@@ -128,7 +130,7 @@ function save_darsadha()
         array_push($all_darsad, $helper_array);
         update_post_meta($post_id, "darsadha", $all_darsad);
     }
-//    $json = wp_json_encode($helper_array);
+    //    $json = wp_json_encode($helper_array);
 //    $json1 = wp_json_encode($all_darsad);
 //    wp_send_json($json1);
 }
@@ -198,7 +200,8 @@ function ry_attach($file_handler, $post_id, $setthumb = false)
 {
 
     // check to make sure its a successful upload
-    if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
+    if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK)
+        __return_false();
 
     require_once(ABSPATH . "wp-admin" . '/includes/image.php');
     require_once(ABSPATH . "wp-admin" . '/includes/file.php');
@@ -260,12 +263,13 @@ function woocommerce_ajax_add_to_cart()
             wc_add_to_cart_message(array($product_id => $quantity), true);
         }
 
-        WC_AJAX:: get_refreshed_fragments();
+        WC_AJAX::get_refreshed_fragments();
     } else {
 
         $data = array(
             'error' => true,
-            'product_url' => apply_filters('woocommerce_cart_redirect_after_error', get_permalink($product_id), $product_id));
+            'product_url' => apply_filters('woocommerce_cart_redirect_after_error', get_permalink($product_id), $product_id)
+        );
 
         echo wp_send_json($data);
     }
@@ -293,8 +297,9 @@ function bbloomer_override_postcode_validation($address_fields)
 /* Custom Post Type Start */
 function create_posttype()
 {
-    register_post_type('news',
-// CPT Options
+    register_post_type(
+        'news',
+        // CPT Options
         array(
             'labels' => array(
                 'name' => __('news'),
@@ -399,7 +404,7 @@ function comment_student_get()
     $numItem = $_POST['numItem'];
     $new_cooments = array();
     $j = 0;
-//    if(0){
+    //    if(0){
     if (get_post_meta($teache_live_page_id, "total_chat", true) != $numItem) {
         $allcomments = get_post_meta($teache_live_page_id, "allchats", true);
         $allcomments = unserialize($allcomments);
@@ -410,7 +415,8 @@ function comment_student_get()
             }
             if (!empty($new_cooments)) {
                 $json = wp_json_encode($new_cooments);
-                wp_send_json($json);;
+                wp_send_json($json);
+                ;
             }
         }
     }
@@ -446,7 +452,7 @@ function im_online()
         $all_user_online = get_post_meta($teache_live_page_id, "all_users", true);
         $all_user_online = unserialize($all_user_online);
         if (!in_array_r($user_names, $all_user_online)) {
-            $i = (int)count($all_user_online);
+            $i = (int) count($all_user_online);
             $i = $i--;
             $all_user_online[$i] = $user_online;
             $all_user_online = serialize($all_user_online);
@@ -536,18 +542,21 @@ function get_all_filter()
         "order" => 'DESC'
     );
     $loop = new WP_Query($arg);
-    if ($loop->have_posts()) : while ($loop->have_posts()) : $loop->the_post();
-        $single_filter["title"] = $loop->post->post_title;
-        $single_filter["regular_price"] = get_post_meta($loop->post->ID, '_regular_price', true);
-        $single_filter["final_price"] = get_post_meta($loop->post->ID, '_price', true);;
-        $single_filter["link"] = get_permalink($loop->post->ID);
-        $image_id = $loop->post->ID;
-        $image = wp_get_attachment_image_src(get_post_thumbnail_id($image_id), 'single-post-thumbnail');
-        $single_filter["image"] = $image[0];
-        $single_filter["id"] = $loop->post->ID;
-        $single_filter["total"] = $loop->found_posts;
-        array_push($return_filter, $single_filter);
-    endwhile;
+    if ($loop->have_posts()):
+        while ($loop->have_posts()):
+            $loop->the_post();
+            $single_filter["title"] = $loop->post->post_title;
+            $single_filter["regular_price"] = get_post_meta($loop->post->ID, '_regular_price', true);
+            $single_filter["final_price"] = get_post_meta($loop->post->ID, '_price', true);
+            ;
+            $single_filter["link"] = get_permalink($loop->post->ID);
+            $image_id = $loop->post->ID;
+            $image = wp_get_attachment_image_src(get_post_thumbnail_id($image_id), 'single-post-thumbnail');
+            $single_filter["image"] = $image[0];
+            $single_filter["id"] = $loop->post->ID;
+            $single_filter["total"] = $loop->found_posts;
+            array_push($return_filter, $single_filter);
+        endwhile;
         wp_reset_postdata();
     endif;
     wp_send_json($return_filter);
@@ -569,7 +578,7 @@ function wp_kama_woocommerce_before_checkout_process_action()
     $mobile = replaceNumberToEnglish($_POST['billing_phone']);
     if (!preg_match("/^09[0-9]{9}$/", $mobile))
         throw new Exception('شماره موبایل صحیح نمیباشد');
-//    $postalCode = replaceNumberToEnglish($_POST['billing_postcode']);
+    //    $postalCode = replaceNumberToEnglish($_POST['billing_postcode']);
 //    if (strlen($postalCode) != 10)
 //        throw new Exception('کد پستی صحیح نمیباشد');
 }
@@ -610,53 +619,57 @@ function success_message_after_payment($order_id)
             if ($order->get_meta('_spotplayer_data'))
                 sendsms($order->get_billing_phone(), array($order->get_billing_first_name(), $order->get_meta('_spotplayer_data')['key']), '274783');
         }
-		if( $order->get_shipping_method()=="تیپاکس"){
-		$order->update_status('wc-tipax', 'تغییر اتوماتیک به وضعیت تیپاکس');
-		}
+        if ($order->get_shipping_method() == "تیپاکس") {
+            $order->update_status('wc-tipax', 'تغییر اتوماتیک به وضعیت تیپاکس');
+        }
     }
-	
-	
-	
+
+
+
 }
-	
+
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');
 
-function register_shipped_order_status() {
-    register_post_status( 'wc-tipax', array(
-        'label'                     => 'تیپاکس',
-        'public'                    => true,
-        'exclude_from_search'       => false,
-        'show_in_admin_all_list'    => true,
+function register_shipped_order_status()
+{
+    register_post_status('wc-tipax', array(
+        'label' => 'تیپاکس',
+        'public' => true,
+        'exclude_from_search' => false,
+        'show_in_admin_all_list' => true,
         'show_in_admin_status_list' => true,
-        'label_count'               => _n_noop( 'تیپاکس <span class="count">(%s)</span>', 'تیپاکس <span class="count">(%s)</span>' )
-    ) );
+        'label_count' => _n_noop('تیپاکس <span class="count">(%s)</span>', 'تیپاکس <span class="count">(%s)</span>')
+    ));
 }
-add_action( 'init', 'register_shipped_order_status' );
+add_action('init', 'register_shipped_order_status');
 
 
-add_filter( 'wc_order_statuses', 'custom_order_status');
-function custom_order_status( $order_statuses ) {
-    $order_statuses['wc-tipax'] = _x( 'تیپاکس', 'Order status', 'woocommerce' ); 
+add_filter('wc_order_statuses', 'custom_order_status');
+function custom_order_status($order_statuses)
+{
+    $order_statuses['wc-tipax'] = _x('تیپاکس', 'Order status', 'woocommerce');
     return $order_statuses;
 }
 
 
-function register_shipped_order_status_comp() {
-    register_post_status( 'wc-tipax-comp', array(
-        'label'                     => 'تکمیل تیپاکس',
-        'public'                    => true,
-        'exclude_from_search'       => false,
-        'show_in_admin_all_list'    => true,
+function register_shipped_order_status_comp()
+{
+    register_post_status('wc-tipax-comp', array(
+        'label' => 'تکمیل تیپاکس',
+        'public' => true,
+        'exclude_from_search' => false,
+        'show_in_admin_all_list' => true,
         'show_in_admin_status_list' => true,
-        'label_count'               => _n_noop( 'تکمیل تیپاکس <span class="count">(%s)</span>', 'تکمیل تیپاکس <span class="count">(%s)</span>' )
-    ) );
+        'label_count' => _n_noop('تکمیل تیپاکس <span class="count">(%s)</span>', 'تکمیل تیپاکس <span class="count">(%s)</span>')
+    ));
 }
-add_action( 'init', 'register_shipped_order_status_comp' );
+add_action('init', 'register_shipped_order_status_comp');
 
 
-add_filter( 'wc_order_statuses', 'custom_order_status_ok');
-function custom_order_status_ok( $order_statuses ) {
-    $order_statuses['wc-tipax-comp'] = _x( 'تکمیل تیپاکس', 'Order status', 'woocommerce' ); 
+add_filter('wc_order_statuses', 'custom_order_status_ok');
+function custom_order_status_ok($order_statuses)
+{
+    $order_statuses['wc-tipax-comp'] = _x('تکمیل تیپاکس', 'Order status', 'woocommerce');
     return $order_statuses;
 }
 
@@ -665,51 +678,55 @@ function custom_order_status_ok( $order_statuses ) {
 
 add_action('admin_head', 'my_custom_fonts');
 
-function my_custom_fonts() {
-  echo '<style>
+function my_custom_fonts()
+{
+    echo '<style>
 	.status-tipax {
       background-color: chartreuse;
       color: black;
     } 
   </style>';
 }
-function my_woocommerce_apply_cart_coupon_in_url() {
-	// Return early if WooCommerce or sessions aren't available.
-	if ( ! function_exists( 'WC' ) || ! WC()->session ) {
-		return;
-	}
+function my_woocommerce_apply_cart_coupon_in_url()
+{
+    // Return early if WooCommerce or sessions aren't available.
+    if (!function_exists('WC') || !WC()->session) {
+        return;
+    }
 
-	// Return if there is no coupon in the URL, otherwise set the variable.
-	if ( empty( $_REQUEST['coupon'] ) ) {
-		return;
-	} else {
-		$coupon_code = esc_attr( $_REQUEST['coupon'] );
-	}
+    // Return if there is no coupon in the URL, otherwise set the variable.
+    if (empty($_REQUEST['coupon'])) {
+        return;
+    } else {
+        $coupon_code = esc_attr($_REQUEST['coupon']);
+    }
 
-	// Set a session cookie to remember the coupon if they continue shopping.
-	WC()->session->set_customer_session_cookie(true);
+    // Set a session cookie to remember the coupon if they continue shopping.
+    WC()->session->set_customer_session_cookie(true);
 
-	// Apply the coupon to the cart if necessary.
-	if ( ! WC()->cart->has_discount( $coupon_code ) ) {
+    // Apply the coupon to the cart if necessary.
+    if (!WC()->cart->has_discount($coupon_code)) {
 
-		// WC_Cart::add_discount() sanitizes the coupon code.
-		WC()->cart->add_discount( $coupon_code );
-	}
+        // WC_Cart::add_discount() sanitizes the coupon code.
+        WC()->cart->add_discount($coupon_code);
+    }
 }
 add_action('wp_loaded', 'my_woocommerce_apply_cart_coupon_in_url', 30);
 add_action('woocommerce_add_to_cart', 'my_woocommerce_apply_cart_coupon_in_url');
 
 
 
-add_filter( 'woocommerce_coupon_is_valid_for_product', 'woocommerceir_exclude_product_from_product_promotions_frontend', 9999, 4 );
- 
-function woocommerceir_exclude_product_from_product_promotions_frontend( $valid, $product, $coupon, $values ) {
-  
-   if ( 153609 == $product->get_id() ) {
-      //$valid = false;
-   }
-   return $valid;
-}
+add_filter('woocommerce_coupon_is_valid_for_product', 'woocommerceir_exclude_product_from_product_promotions_frontend', 9999, 4);
 
+function woocommerceir_exclude_product_from_product_promotions_frontend($valid, $product, $coupon, $values)
+{
+
+    if (153609 == $product->get_id()) {
+        //$valid = false;
+    }
+    return $valid;
+}
+//-------------------
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');
 
 ?>

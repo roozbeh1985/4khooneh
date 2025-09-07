@@ -728,66 +728,29 @@ function woocommerceir_exclude_product_from_product_promotions_frontend($valid, 
 }
 //-------------------custom Field
 
-function my_custom_meta_box() {
-    add_meta_box(
-        'my_custom_field_box',
-        'زمینه دلخواه من',
-        'my_custom_field_html',
-        'page',
-        'normal',
-        'high'
-    );
-}
-add_action('add_meta_boxes', 'my_custom_meta_box');
-
-function my_custom_field_html($post) {
-    $value = get_post_meta($post->ID, '_my_custom_field', true);
-    wp_nonce_field('my_custom_field_nonce', 'my_custom_field_nonce_field');
-    ?>
-    <input type="text" name="my_custom_field_input" id="my_custom_field_input" value="<?php echo esc_attr($value); ?>" style="width:100%;" />
-    <?php
-}
-
-function my_custom_field_save($post_id) {
-    if (!isset($_POST['my_custom_field_nonce_field']) || !wp_verify_nonce($_POST['my_custom_field_nonce_field'], 'my_custom_field_nonce')) {
-        return;
-    }
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-    if (!current_user_can('edit_post', $post_id)) return;
-    if (isset($_POST['my_custom_field_input'])) {
-        update_post_meta($post_id, '_my_custom_field', sanitize_text_field($_POST['my_custom_field_input']));
-    }
-}
-add_action('save_post', 'my_custom_field_save');
-
-function show_my_custom_field($content) {
-    if (is_page()) {
-        global $post;
-        $value = get_post_meta($post->ID, '_my_custom_field', true);
-        if ($value) {
-            $content .= '<div class="my-custom-field">' . esc_html($value) . '</div>';
-        }
-    }
-    return $content;
-}
-add_filter('the_content', 'show_my_custom_field');
 function show_all_page_meta($content) {
     if (is_page()) {
         global $post;
         $all_meta = get_post_meta($post->ID);
-        if (!empty($all_meta)) {
-            $content .= '<div class="page-meta" style="background:#f9f9f9;padding:10px;margin:10px 0;border:1px solid #ccc">';
-            $content .= '<h3>Meta Fields:</h3><ul>';
+
+        if ($all_meta && is_array($all_meta)) {
+            $content .= '<div style="background:#f1f1f1;padding:15px;margin:20px 0;border:1px solid #ccc">';
+            $content .= '<h3>🔑 همه متاهای این صفحه:</h3><ul>';
+
             foreach ($all_meta as $key => $values) {
                 foreach ($values as $value) {
-                    $content .= '<li><strong>' . esc_html($key) . ':</strong> ' . esc_html($value) . '</li>';
+                    $content .= '<li><b>' . esc_html($key) . '</b> : ' . esc_html($value) . '</li>';
                 }
             }
+
             $content .= '</ul></div>';
+        } else {
+            $content .= '<div style="background:#fee;padding:15px;margin:20px 0;border:1px solid #c00">⛔ هیچ متایی برای این صفحه پیدا نشد.</div>';
         }
     }
     return $content;
 }
 add_filter('the_content', 'show_all_page_meta');
+
 
 ?>

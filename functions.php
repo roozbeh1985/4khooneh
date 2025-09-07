@@ -840,7 +840,7 @@ function show_product_type_column_content($column, $post_id)
                 $types['فیلم'] = '🎬';
             if (strpos($product_name, 'کلاس') !== false)
                 $types['کلاس'] = '🏫';
-            if (strpos($product_name, 'آزمون آزمایشی') !== false)
+            if (strpos($product_name, 'کنکور آزمایشی') !== false)
                 $types['آزمون'] = '📝';
         }
         if (empty($types))

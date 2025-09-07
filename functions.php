@@ -727,13 +727,28 @@ function woocommerceir_exclude_product_from_product_promotions_frontend($valid, 
     return $valid;
 }
 //-------------------custom Field
+function show_all_post_meta($content) {
+    if (is_single()) {
+        global $post;
+        $all_meta = get_post_meta($post->ID);
 
-function add_test_meta_to_post($post_id) {
-    if (get_post_type($post_id) === 'post') {
-        update_post_meta($post_id, '_test_meta_key', 'سلام دنیا');
+        if (!empty($all_meta)) {
+            $content .= '<div style="background:#f1f1f1;padding:15px;margin:20px 0;border:1px solid #ccc">';
+            $content .= '<h3>🔑 متاهای این پست:</h3><ul>';
+            foreach ($all_meta as $key => $values) {
+                foreach ($values as $value) {
+                    $content .= '<li><b>' . esc_html($key) . '</b> : ' . esc_html($value) . '</li>';
+                }
+            }
+            $content .= '</ul></div>';
+        } else {
+            $content .= '<div style="background:#fee;padding:15px;margin:20px 0;border:1px solid #c00">⛔ هیچ متایی برای این پست وجود ندارد.</div>';
+        }
     }
+    return $content;
 }
-add_action('save_post', 'add_test_meta_to_post');
+add_filter('the_content', 'show_all_post_meta');
+
 
 
 

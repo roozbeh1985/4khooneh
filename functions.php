@@ -812,12 +812,12 @@ function ry_save_all_meta_box($post_id) {
 add_action('save_post', 'ry_save_all_meta_box');
 
 //--------------emoji woocommerce--*---------
-add_filter('manage_edit-shop_order_columns', 'add_product_type_column', 20);
-function add_product_type_column($columns) {
+add_filter('manage_edit-shop_order_columns', 'add_product_type_column_after_date', 20);
+function add_product_type_column_after_date($columns) {
     $new_columns = array();
     foreach ($columns as $key => $column) {
         $new_columns[$key] = $column;
-        if ($key === 'order_total') {
+        if ($key === 'order_date') { // بعد از ستون تاریخ
             $new_columns['product_type'] = 'نوع محصول';
         }
     }
@@ -831,14 +831,23 @@ function show_product_type_column_content($column, $post_id) {
         $types = array();
         foreach ($order->get_items() as $item) {
             $product_name = strtolower($item->get_name());
-            if (strpos($product_name, 'فیلم') !== false) $types['فیلم'] = '<span style="font-size:2em;">🎬</span>';
-            if (strpos($product_name, 'کلاس') !== false) $types['کلاس'] = '<span style="font-size:2em;">🏫</span>';
-            if (strpos($product_name, 'آزمون آزمایشی') !== false) $types['آزمون'] = '<span style="font-size:2em;">📝</span>';
+            if (strpos($product_name, 'فیلم') !== false) $types['فیلم'] = '🎬';
+            if (strpos($product_name, 'کلاس') !== false) $types['کلاس'] = '🏫';
+            if (strpos($product_name, 'آزمون آزمایشی') !== false) $types['آزمون'] = '📝';
         }
-        if (empty($types)) echo '<span style="font-size:2em;">📚</span>';
-        else echo implode(' ', $types);
+        if (empty($types)) $types[] = '📚';
+        echo '<span class="product-type-emojis">' . implode(' ', $types) . '</span>';
     }
 }
+
+add_action('admin_head', function() {
+    echo '<style>
+    .column-product_type .product-type-emojis {
+        font-size: 2em;
+        line-height: 1.5em;
+    }
+    </style>';
+});
 
 
 

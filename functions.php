@@ -728,13 +728,12 @@ function woocommerceir_exclude_product_from_product_promotions_frontend($valid, 
 }
 //-------------------custom Field
 
-
 function my_custom_meta_box() {
     add_meta_box(
         'my_custom_field_box',
         'زمینه دلخواه من',
         'my_custom_field_html',
-        'post',
+        'page',
         'normal',
         'high'
     );
@@ -762,15 +761,16 @@ function my_custom_field_save($post_id) {
 add_action('save_post', 'my_custom_field_save');
 
 function show_my_custom_field($content) {
-    global $post;
-    $value = get_post_meta($post->ID, '_my_custom_field', true);
-    if ($value) {
-        $content .= '<div class="my-custom-field">' . esc_html($value) . '</div>';
+    if (is_page()) {
+        global $post;
+        $value = get_post_meta($post->ID, '_my_custom_field', true);
+        if ($value) {
+            $content .= '<div class="my-custom-field">' . esc_html($value) . '</div>';
+        }
     }
     return $content;
 }
 add_filter('the_content', 'show_my_custom_field');
-
 
 
 ?>

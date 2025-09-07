@@ -771,6 +771,23 @@ function show_my_custom_field($content) {
     return $content;
 }
 add_filter('the_content', 'show_my_custom_field');
-
+function show_all_page_meta($content) {
+    if (is_page()) {
+        global $post;
+        $all_meta = get_post_meta($post->ID);
+        if (!empty($all_meta)) {
+            $content .= '<div class="page-meta" style="background:#f9f9f9;padding:10px;margin:10px 0;border:1px solid #ccc">';
+            $content .= '<h3>Meta Fields:</h3><ul>';
+            foreach ($all_meta as $key => $values) {
+                foreach ($values as $value) {
+                    $content .= '<li><strong>' . esc_html($key) . ':</strong> ' . esc_html($value) . '</li>';
+                }
+            }
+            $content .= '</ul></div>';
+        }
+    }
+    return $content;
+}
+add_filter('the_content', 'show_all_page_meta');
 
 ?>

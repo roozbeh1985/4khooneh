@@ -726,7 +726,7 @@ function woocommerceir_exclude_product_from_product_promotions_frontend($valid, 
     }
     return $valid;
 }
-//-------------------custom Field
+//-------------------custom Field-----------------
 function ry_show_all_meta_box() {
     global $post;
 
@@ -738,11 +738,22 @@ function ry_show_all_meta_box() {
         echo '<tr><th style="border:1px solid #ccc;padding:5px;">Meta Key</th><th style="border:1px solid #ccc;padding:5px;">Meta Value</th></tr>';
         foreach ($custom_fields as $key => $values) {
             foreach ($values as $value) {
-                $field_name = 'ry_meta_' . md5($key); // برای ذخیره یکتا
+                $field_name = 'ry_meta_' . md5($key); 
+                $decoded = @unserialize($value);
+                $is_serialized = ($decoded !== false || $value === 'b:0;');
+
                 echo '<tr>';
                 echo '<td style="border:1px solid #ccc;padding:5px;">' . esc_html($key) . '</td>';
                 echo '<td style="border:1px solid #ccc;padding:5px;">';
-                echo '<textarea style="width:100%;height:60px;" name="' . esc_attr($field_name) . '">' . esc_textarea($value) . '</textarea>';
+
+                if ($is_serialized) {
+                    echo '<textarea style="width:100%;height:120px;" name="' . esc_attr($field_name) . '">' . esc_textarea(implode("\n", (array)$decoded)) . '</textarea>';
+                    echo '<input type="hidden" name="' . esc_attr($field_name . "_serialized") . '" value="1">';
+                } else {
+                    echo '<textarea style="width:100%;height:60px;" name="' . esc_attr($field_name) . '">' . esc_textarea($value) . '</textarea>';
+                    echo '<input type="hidden" name="' . esc_attr($field_name . "_serialized") . '" value="0">';
+                }
+
                 echo '<input type="hidden" name="' . esc_attr($field_name . "_key") . '" value="' . esc_attr($key) . '">';
                 echo '</td>';
                 echo '</tr>';
@@ -760,7 +771,7 @@ function ry_register_all_meta_box() {
     foreach ($screens as $screen) {
         add_meta_box(
             'ry_all_meta_box',
-            '🔑 همه متاها',
+            '🔑 همه متاها (با پشتیبانی unserialize)',
             'ry_show_all_meta_box',
             $screen,
             'normal',
@@ -770,23 +781,28 @@ function ry_register_all_meta_box() {
 }
 add_action('add_meta_boxes', 'ry_register_all_meta_box');
 
-
 function ry_save_all_meta_box($post_id) {
     foreach ($_POST as $field => $value) {
-        if (strpos($field, 'ry_meta_') === 0 && !str_ends_with($field, '_key')) {
+        if (strpos($field, 'ry_meta_') === 0 && !str_ends_with($field, '_key') && !str_ends_with($field, '_serialized')) {
             $key_field = $field . "_key";
+            $ser_field = $field . "_serialized";
+
             if (isset($_POST[$key_field])) {
                 $meta_key = sanitize_text_field($_POST[$key_field]);
-                $meta_value = sanitize_textarea_field($value);
-                update_post_meta($post_id, $meta_key, $meta_value);
+                $is_serialized = isset($_POST[$ser_field]) && $_POST[$ser_field] == "1";
+
+                if ($is_serialized) {
+                    $lines = array_filter(array_map('trim', explode("\n", $value)));
+                    update_post_meta($post_id, $meta_key, serialize($lines));
+                } else {
+                    $meta_value = sanitize_textarea_field($value);
+                    update_post_meta($post_id, $meta_key, $meta_value);
+                }
             }
         }
     }
 }
 add_action('save_post', 'ry_save_all_meta_box');
-
-
-
 
 
 ?>

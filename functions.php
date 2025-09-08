@@ -844,7 +844,7 @@ function show_product_type_column_content($column, $post_id)
                 $types['آزمون'] = '📝';
         }
         if (empty($types))
-            $types[] = '';
+            $types[] = '📒';
         echo '<span class="product-type-emojis">' . implode(' ', $types) . '</span>';
     }
 }
@@ -865,11 +865,13 @@ add_action('admin_head', function () {
 });
 
 add_action('woocommerce_order_status_changed', function($order_id, $old_status, $new_status, $order) {
-    if ($new_status === 'completed') {
+    if ($old_status === 'processing' && $new_status === 'completed') {
         foreach ($order->get_items() as $item) {
             $product = $item->get_product();
             if ($product && ($product->is_virtual() || $product->is_downloadable())) {
-                $order->update_status('processing', 'محصول دانلودی یا مجازی، سفارش کامل نشد و در حال انجام باقی ماند.');
+                remove_action('woocommerce_order_status_changed', __FUNCTION__, 10);
+                $order->update_status('processing', 'محصول دانلودی یا مجازی: سفارش کامل نشد و در حال انجام باقی ماند.');
+                add_action('woocommerce_order_status_changed', __FUNCTION__, 10, 4);
                 break;
             }
         }

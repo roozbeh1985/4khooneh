@@ -572,7 +572,7 @@ function ry_load_fiiil($woo_checkout_fields_array)
 }
 
 //------------------------------------check Oil Status---------------------------------------------------
-add_action('woocommerce_before_checkout_process', 'wp_kama_woocommerce_before_checkout_process_action');
+add_action('woocommerce_before_checkout_process', 'wp_kama_woocommerce_before_checkout_process_action');s
 function wp_kama_woocommerce_before_checkout_process_action()
 {
     $mobile = replaceNumberToEnglish($_POST['billing_phone']);
@@ -615,7 +615,6 @@ function success_message_after_payment($order_id)
     $order->get_meta('_spotplayer_data')['key'];
     if ($order->has_status('processing') || $order->has_status('completed')) {
         if ($_COOKIE["stSync" . $order->get_order_number()] !== "ok") {
-            // setcookie("stSync" . $order->get_order_number(), "ok", time() + 36000);
             if ($order->get_meta('_spotplayer_data'))
                 sendsms($order->get_billing_phone(), array($order->get_billing_first_name(), $order->get_meta('_spotplayer_data')['key']), '274783');
         }
@@ -623,15 +622,15 @@ function success_message_after_payment($order_id)
             $order->update_status('wc-tipax', 'تغییر اتوماتیک به وضعیت تیپاکس');
         }
     }
-    foreach ($order->get_items() as $item) {
-        $product = $item->get_product();
-        if ($product && ($product->is_virtual() || $product->is_downloadable())) {
-            if ('completed' === $order->get_status()) {
-                $order->update_status('processing', 'محصول دانلودی یا مجازی: سفارش کامل نشد و در حال انجام باقی ماند.');
-            }
-            break;
-        }
-    }
+    // foreach ($order->get_items() as $item) {
+    //     $product = $item->get_product();
+    //     if ($product && ($product->is_virtual() || $product->is_downloadable())) {
+    //         if ('completed' === $order->get_status()) {
+    //             $order->update_status('processing', 'محصول دانلودی یا مجازی: سفارش کامل نشد و در حال انجام باقی ماند.');
+    //         }
+    //         break;
+    //     }
+    // }
 
 
 }

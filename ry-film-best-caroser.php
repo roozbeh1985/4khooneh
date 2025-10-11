@@ -33,9 +33,9 @@
                                 <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($loop->post->ID), 'medium');
                                 add_filter('woocommerce_order_item_name', 'woo_order_item_with_link', 10, 3);
                                 ?>
-                                <img class="lazy" alt="<?php the_title() ?>" title="<?php the_title() ?>"
-                                     src="<?php bloginfo('url'); ?>/img/lazyloud.jpg"
-                                     data-src="<?php echo $image[0]; ?>">
+                                <img  alt="<?php the_title() ?>" title="<?php the_title() ?>"
+                                     src-m="<?php bloginfo('url'); ?>/img/lazyloud.jpg"
+                                     src="<?php echo $image[0]; ?>">
                                 <h4 class="ry-detail-product"><?php the_title() ?></h4>
                                 <?php
 

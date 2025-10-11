@@ -366,7 +366,7 @@ $has_not_ostad = get_post_meta($post->ID, 'بدون استاد', true);
                                             <!-- Additional required wrapper -->
                                             <div class="swiper-wrapper">
                                                 <!-- Slides -->
-                                                <div class="swiper-slide lazy ">
+                                                <div class="swiper-slide  ">
 
                                                     <img src="<?php bloginfo('url') ?>/wp-content/uploads/2019/10/5cb219d3-5817-42e9-8c24-462c37cb881d-150x150-2.jpg "
                                                          alt="روزبه یگانه">
@@ -485,10 +485,10 @@ $has_not_ostad = get_post_meta($post->ID, 'بدون استاد', true);
                                                                    title="<?php the_title_attribute(); ?>">
                                                                     <div class="ry-carosel ry-carosel-s ">
                                                                         <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($loop->post->ID), 'medium'); ?>
-                                                                        <img class="lazy ry-main-pic"
+                                                                        <img class=" ry-main-pic"
                                                                              alt="<?php echo $loop->post->post_title; ?>"
-                                                                             src="<?php bloginfo('url'); ?>/img/lazyloud.jpg"
-                                                                             data-src="<?php echo $image[0]; ?> ">
+                                                                             src-m="<?php bloginfo('url'); ?>/img/lazyloud.jpg"
+                                                                             src="<?php echo $image[0]; ?> ">
                                                                         <p><?php the_title_attribute(); ?></p>
                                                                     </div>
                                                                 </a>

@@ -59,29 +59,29 @@ setPostViews(get_the_ID());
                                             $film_kind = get_post_meta($post->ID, 'فیلم', true);
                                             if (!$film_kind && $film_kind != 'ok') {
                                                 ?>
-                                                <div class="page four"><img class="lazy" alt="<?php the_title(); ?>"
-                                                                            data-src="<?php echo $image_link[3]; ?>"
+                                                <div class="page four"><img class="" alt="<?php the_title(); ?>"
+                                                                            src-m="<?php echo $image_link[3]; ?>"
                                                                             src="<?php bloginfo('url'); ?>/img/lazyloud.jpg">
                                                 </div>
-                                                <div class="page three"><img class="lazy" alt="<?php the_title(); ?>"
-                                                                             data-src="<?php echo $image_link[2]; ?>"
-                                                                             src="<?php bloginfo('url'); ?>/img/lazyloud.jpg">
+                                                <div class="page three"><img class="" alt="<?php the_title(); ?>"
+                                                                             src="<?php echo $image_link[2]; ?>"
+                                                                             src-m="<?php bloginfo('url'); ?>/img/lazyloud.jpg">
                                                 </div>
-                                                <div class="page two"><img class="lazy" alt="<?php the_title(); ?>"
-                                                                           data-src="<?php echo $image_link[1]; ?>"
-                                                                           src="<?php bloginfo('url'); ?>/img/lazyloud.jpg">
+                                                <div class="page two"><img class="" alt="<?php the_title(); ?>"
+                                                                           src="<?php echo $image_link[1]; ?>"
+                                                                           src-m="<?php bloginfo('url'); ?>/img/lazyloud.jpg">
                                                 </div>
-                                                <div class="page one"><img class="lazy" alt="<?php the_title(); ?>"
-                                                                           data-src="<?php echo $image_link[0]; ?>"
-                                                                           src="<?php bloginfo('url'); ?>/img/lazyloud.jpg">
+                                                <div class="page one"><img class="" alt="<?php the_title(); ?>"
+                                                                           src="<?php echo $image_link[0]; ?>"
+                                                                           src-m="<?php bloginfo('url'); ?>/img/lazyloud.jpg">
                                                 </div>
                                             <?php } ?>
                                             <div
                                                 class="ck-cover <?php if (!$film_kind && $film_kind != 'ok') echo 'front' ?> ck-itemeees">
-                                                <img id="ry-coovv" class="lazy"
+                                                <img id="ry-coovv" class=""
                                                      alt="<?php the_title(); ?>"
-                                                     data-src="<?php echo $image_product; ?>"
-                                                     src="<?php bloginfo('url'); ?>/img/lazyloud.jpg">
+                                                     src="<?php echo $image_product; ?>"
+                                                     src-m="<?php bloginfo('url'); ?>/img/lazyloud.jpg">
                                             </div>
                                         </div>
                                         <script>
@@ -128,7 +128,7 @@ setPostViews(get_the_ID());
                                         <div class="col-lg-10 col-md-10 col-12 p-0">
                                             <div class="ry-img-zoom-container">
                                                 <i class="fa fa-times ry-close"></i>
-                                                <img id="tumb1" class="lazy ry-close-img"
+                                                <img id="tumb1" class=" ry-close-img"
                                                      src="<?php bloginfo("template_url"); ?>/img/aroos.jpg">
                                                 <i class="fa fa-close ry-close"></i>
                                                 <i class="fa fa-angle-right ry-right-img"></i>
@@ -959,8 +959,8 @@ setPostViews(get_the_ID());
                                                     $href = $crosssellProduct->get_permalink();
                                                     ?>
                                                     <div class="swiper-slide lazy "><a href="<?php echo $href; ?>"><img
-                                                                class="lazy"
-                                                                data-src="<?php echo $image_product; ?> "
+                                                                class=""
+                                                                src="<?php echo $image_product; ?> "
                                                                 alt="<?php the_title(); ?>"></a>
                                                     </div>
                                                 <?php

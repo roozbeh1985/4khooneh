@@ -572,7 +572,7 @@ function ry_load_fiiil($woo_checkout_fields_array)
 }
 
 //------------------------------------check Oil Status---------------------------------------------------
-add_action('woocommerce_before_checkout_process', 'wp_kama_woocommerce_before_checkout_process_action');s
+add_action('woocommerce_before_checkout_process', 'wp_kama_woocommerce_before_checkout_process_action');
 function wp_kama_woocommerce_before_checkout_process_action()
 {
     $mobile = replaceNumberToEnglish($_POST['billing_phone']);

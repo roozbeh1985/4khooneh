@@ -622,15 +622,19 @@ function success_message_after_payment($order_id)
             $order->update_status('wc-tipax', 'تغییر اتوماتیک به وضعیت تیپاکس');
         }
     }
-    // foreach ($order->get_items() as $item) {
-    //     $product = $item->get_product();
-    //     if ($product && ($product->is_virtual() || $product->is_downloadable())) {
-    //         if ('completed' === $order->get_status()) {
-    //             $order->update_status('processing', 'محصول دانلودی یا مجازی: سفارش کامل نشد و در حال انجام باقی ماند.');
-    //         }
-    //         break;
-    //     }
-    // }
+    foreach ($order->get_items() as $item) {
+        $product = $item->get_product();
+        if (
+    $product &&
+    ($product->is_virtual() || $product->is_downloadable()) &&
+    $product->get_meta('_should_force_processing') === 'yes'
+) {
+            if ('completed' === $order->get_status()) {
+                $order->update_status('processing', 'محصول دانلودی یا مجازی: سفارش کامل نشد و در حال انجام باقی ماند.');
+            }
+            break;
+        }
+    }
 
 
 }

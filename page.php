@@ -166,8 +166,8 @@ setPostViews(get_the_ID());
 
                                                     }
                                                     ?>
-                                                    <img class="lazy ck-book-img" data-src="<?php echo $image[0]; ?>"
-                                                         src="<?php bloginfo('url'); ?>/img/lazyloud.jpg"
+                                                    <img class=" ck-book-img" src="<?php echo $image[0]; ?>"
+                                                         src-m="<?php bloginfo('url'); ?>/img/lazyloud.jpg"
                                                          alt="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
                                                     <!--                                        <div class="ck-moshahedesafahat">-->
                                                     <!--                                            <h3>مشاهده جزئیات کتاب</h3>-->
@@ -316,8 +316,8 @@ setPostViews(get_the_ID());
                                         $image = wp_get_attachment_image_src(get_post_thumbnail_id($image_id), 'single-post-thumbnail');
                                         ?>
                                         <?php ?>
-                                        <img class="lazy ck-book-img" data-src="<?php echo $image[0]; ?>"
-                                             src="<?php bloginfo('url'); ?>/img/lazyloud.jpg"
+                                        <img class=" ck-book-img" src="<?php echo $image[0]; ?>"
+                                             src-m="<?php bloginfo('url'); ?>/img/lazyloud.jpg"
                                              alt="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
                                         <!--                                        <div class="ck-moshahedesafahat">-->
                                         <!--                                            <h3>مشاهده جزئیات کتاب</h3>-->

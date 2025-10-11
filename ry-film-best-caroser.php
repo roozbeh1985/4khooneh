@@ -76,9 +76,9 @@
 
                                 if($has_not_ostad!=="ok"){
                                     ?>
-                                    <img class="lazy float-right"
-                                         src="<?php bloginfo('url') ?>/wp-content/uploads/2019/12/user2.png"
-                                         data-src="<?php echo $imag_logo ?>"
+                                    <img class=" float-right"
+                                         src-m="<?php bloginfo('url') ?>/wp-content/uploads/2019/12/user2.png"
+                                         src="<?php echo $imag_logo ?>"
                                          alt="<?php echo $author_display_name; ?>">
                                     <p class="float-right ry-aurtorname">
                                         <?php echo "استاد:" . $ostad_name; ?>

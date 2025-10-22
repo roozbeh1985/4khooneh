@@ -10,7 +10,7 @@ Template Name: OnlineCourse
             <div class="row" dir="rtl">
 
                 <article class="ck-page-article w-100 ">
-                    <div class="ryHeightD">
+                    <div class="ryHeightD mt-5">
                         <iframe src="https://www.skyroom.online/ch/charkhooneh/computeronlinecourse" width="100%"
                         height="100%" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
                     </div>
@@ -51,7 +51,14 @@ Template Name: OnlineCourse
     }
     .ryHeightD{
         width: 100%;
-        height: fit-content!important;
+        height: 100vh !important;
+        max-height: 100vh;
+        overflow: auto;
+    }
+    .ryHeightD iframe{
+        height: 100%;
+        display: block;
+        border: 0;
     }
 </style>
 <div style="display: none!important;">

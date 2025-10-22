@@ -9,7 +9,7 @@ Template Name: OnlineCourse
         <div class="container-fluid">
             <div class="row" dir="rtl">
 
-                <article class="ck-page-article">
+                <article class="ck-page-article w-100 ">
                     <div class="ck-all-page-content">
                         <?php
                         $my_postid = $_REQUEST['page_id'];
@@ -49,4 +49,6 @@ Template Name: OnlineCourse
         </div>
     </div>
 </div>
-<?php include("footer.php") ?>
+<div class="d-none">
+    <?php include("footer.php") ?>
+</div>

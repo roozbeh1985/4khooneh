@@ -4,6 +4,15 @@ Template Name: OnlineCourse
 */
 ?>
 <?php include("header.php"); ?>
+
+<?php
+$course = get_post_meta( get_the_ID(), 'courseItem', true );
+if ( empty( $course ) ) {
+    $course = 'computeronlinecourse';
+}
+$iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlencode( $course ) );
+?>
+
 <div>
     <div>
         <div class="container-fluid">
@@ -11,7 +20,7 @@ Template Name: OnlineCourse
 
                 <article class="ck-page-article w-100 ">
                     <div class="ryHeightD mt-5">
-                        <iframe src="https://www.skyroom.online/ch/charkhooneh/computeronlinecourse" width="100%"
+                        <iframe src="<?php echo $iframe_src; ?>" width="100%"
                         height="100%" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
                     </div>
                     

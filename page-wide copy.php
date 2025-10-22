@@ -49,3 +49,9 @@ Template Name: OnlineCourse
         </div>
     </div>
 </div>
+<style>
+    .ck-footer {display: none!important;}
+</style>
+<div style="display: none!important;">
+    <?php include("footer.php") ?>
+</div>

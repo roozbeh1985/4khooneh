@@ -10,7 +10,7 @@ Template Name: OnlineCourse
             <div class="row" dir="rtl">
 
                 <article class="ck-page-article w-100 ">
-                    <div class="ck-all-page-content">
+                    <div class="ck-all-page-content mt-4">
                         <?php
                         $my_postid = $_REQUEST['page_id'];
                         $content_post = get_post($my_postid);

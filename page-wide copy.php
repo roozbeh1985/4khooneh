@@ -10,15 +10,11 @@ Template Name: OnlineCourse
             <div class="row" dir="rtl">
 
                 <article class="ck-page-article w-100 ">
-                    <div class="ck-all-page-content mt-4">
-                        <?php
-                        $my_postid = $_REQUEST['page_id'];
-                        $content_post = get_post($my_postid);
-                        $content = $content_post->post_content;
-
-                        ?>
-                        <?php echo do_shortcode($content) ?>
+                    <div class="ryHeightD">
+                        <iframe src="https://www.skyroom.online/ch/charkhooneh/computeronlinecourse" width="100%"
+                        height="100%" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
                     </div>
+                    
 
                     <div class="ck-comment-header">
                         <img src="<?php bloginfo('url'); ?>/img/comment-icom.png">
@@ -50,7 +46,13 @@ Template Name: OnlineCourse
     </div>
 </div>
 <style>
-    .ck-footer {display: none!important;}
+    .ck-footer {
+        display: none !important;
+    }
+    .ryHeightD{
+        width: 100%;
+        height: fit-content!important;
+    }
 </style>
 <div style="display: none!important;">
     <?php include("footer.php") ?>

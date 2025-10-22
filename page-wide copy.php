@@ -49,6 +49,6 @@ Template Name: OnlineCourse
         </div>
     </div>
 </div>
-<div class="d-none">
+<div style="display: none!important;">
     <?php include("footer.php") ?>
 </div>

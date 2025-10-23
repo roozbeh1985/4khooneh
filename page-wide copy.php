@@ -174,8 +174,8 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
     .ck-vendor-overlay{
         position: absolute;
         top: 4px;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 12px;
+        transform: none;
         z-index: 1000000;
         display: inline-block;
         text-decoration: none;
@@ -187,7 +187,6 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
     }
     .ryHeightD.fullScreen .ck-vendor-overlay,
     html.ck-fullscreen-mode .ck-vendor-overlay{
-        top: 4px;
         left: 50%;
         transform: translateX(-50%);
     }

@@ -173,7 +173,7 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
 
     .ck-vendor-overlay{
         position: absolute;
-        top: 4px;
+        top: 36px;
         left: 12px;
         transform: none;
         z-index: 1000000;

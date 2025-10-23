@@ -19,12 +19,19 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
             <div class="row" dir="rtl">
 
                 <article class="ck-page-article w-100 ">
-                    <div class="ryHeightD mt-5">
-                        <iframe src="<?php echo $iframe_src; ?>" width="100%"
+                    <div class="ryHeightD mt-5" style="position:relative;">
+                        <iframe id="skyroom_iframe" src="<?php echo $iframe_src; ?>" width="100%"
                         height="100%" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-                    </div>
-                    
 
+                        <!-- overlay logo (covers/appears instead of vendor logo inside iframe) -->
+                        <a class="ck-vendor-overlay" href="https://skyroom.online" target="_blank" title="4khooneh">
+                            <img src="https://4khooneh.org/img/ck-logo.png" alt="4khooneh">
+                        </a>
+                    </div>
+
+                    <!-- fullscreen button -->
+                    <button class="ck-fullscreen-btn" title="تمام صفحه">⤢</button>
+                    
                     <div class="ck-comment-header">
                         <img src="<?php bloginfo('url'); ?>/img/comment-icom.png">
                         <h3>ارسال دیدگاه(نظرات، انتقادات و پیشنهادات خود را با ما در میان بگذارید.)</h3>
@@ -44,6 +51,69 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
                                     }, 400);
                             }
                         });
+
+                        (function ($) {
+                            var $container = $('.ryHeightD').first();
+                            var $btn = $('.ck-fullscreen-btn');
+
+                            function enterFallback() {
+                                $container.addClass('fullScreen');
+                                $('html').addClass('ck-fullscreen-mode');
+                            }
+                            function exitFallback() {
+                                $container.removeClass('fullScreen');
+                                $('html').removeClass('ck-fullscreen-mode');
+                            }
+
+                            function isInFullscreen() {
+                                return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || $container.hasClass('fullScreen');
+                            }
+
+                            function requestFullscreen(el) {
+                                if (el.requestFullscreen) return el.requestFullscreen();
+                                if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
+                                if (el.mozRequestFullScreen) return el.mozRequestFullScreen();
+                                if (el.msRequestFullscreen) return el.msRequestFullscreen();
+                                return null;
+                            }
+                            function exitFullscreen() {
+                                if (document.exitFullscreen) return document.exitFullscreen();
+                                if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+                                if (document.mozCancelFullScreen) return document.mozCancelFullScreen();
+                                if (document.msExitFullscreen) return document.msExitFullscreen();
+                                return null;
+                            }
+
+                            $btn.on('click', function () {
+                                if (!isInFullscreen()) {
+                                    // try Fullscreen API on container
+                                    var p = requestFullscreen($container.get(0));
+                                    // also add class to html to enforce margin-top and hide menubar
+                                    $('html').addClass('ck-fullscreen-mode');
+                                    // fallback if API not available
+                                    setTimeout(function () {
+                                        if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+                                            enterFallback();
+                                        }
+                                    }, 300);
+                                } else {
+                                    // exit
+                                    exitFullscreen();
+                                    exitFallback();
+                                    $('html').removeClass('ck-fullscreen-mode');
+                                }
+                            });
+
+                            // handle native fullscreen change (to remove our classes)
+                            $(document).on('fullscreenchange webkitfullscreenchange mozfullscreenchange MSFullscreenChange', function () {
+                                if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+                                    exitFallback();
+                                    $('html').removeClass('ck-fullscreen-mode');
+                                } else {
+                                    $('html').addClass('ck-fullscreen-mode');
+                                }
+                            });
+                        })(jQuery);
                     </script>
 
                 </article>
@@ -69,7 +139,87 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
         display: block;
         border: 0;
     }
+    .vendor_logo{
+        display:none!important;
+    }
+    .fullScreen{
+        
+    }
+
+    /* added styles for fullscreen button and mode */
+    .ck-fullscreen-btn{
+        position: fixed;
+        left: 12px;
+        bottom: 12px;
+        z-index: 999999;
+        background: rgba(0,0,0,0.6);
+        color: #fff;
+        border: none;
+        padding: 10px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    html.ck-fullscreen-mode{
+        margin-top: 0 !important;
+    }
+    html.ck-fullscreen-mode .menubar{
+        display: none !important;
+    }
+    /* fallback full screen (if Fullscreen API unavailable) */
+    .ryHeightD.fullScreen{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh !important;
+        z-index: 999998;
+    }
+    .ryHeightD { position: relative; }
+
+    /* نمایش لوگو در بالا-چپ روی iframe */
+    .ck-vendor-overlay{
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 1000000;
+        display: inline-block;
+        text-decoration: none;
+    }
+    .ck-vendor-overlay img{
+        height: 36px; /* اندازه را بر اساس نیاز تنظیم کنید */
+        display: block;
+        pointer-events: auto;
+    }
+    /* اگر می‌خواهید در حالت fullscreen هم نگه داشته شود */
+    .ryHeightD.fullScreen .ck-vendor-overlay,
+    html.ck-fullscreen-mode .ck-vendor-overlay{
+        top: 12px;
+        left: 12px;
+    }
 </style>
 <div style="display: none!important;">
     <?php include("footer.php") ?>
 </div>
+<script>
+    (function($){
+        var iframe = document.getElementById('skyroom_iframe');
+        if (iframe) {
+            iframe.addEventListener('load', function(){
+                try {
+                    // فقط اگر same-origin باشد قابل اجراست
+                    var doc = iframe.contentDocument || iframe.contentWindow.document;
+                    var img = doc.querySelector('.box-shrink.login-title img#vendor_logo') || doc.querySelector('.box-shrink.login-title img');
+                    if (img) {
+                        img.src = 'https://4khooneh.org/img/ck-logo.png';
+                        img.alt = '4khooneh';
+                    }
+                } catch (err) {
+                    // cross-origin -> دسترسی ممکن نیست
+                    console.warn('Cannot access iframe DOM (cross-origin).', err);
+                }
+            });
+        }
+    })(jQuery);
+</script>

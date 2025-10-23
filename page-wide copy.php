@@ -198,6 +198,10 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
         top: 12px;
         left: 12px;
     }
+    .vendor_logo{
+        display: none!important;
+    }
+    
 </style>
 <div style="display: none!important;">
     <?php include("footer.php") ?>

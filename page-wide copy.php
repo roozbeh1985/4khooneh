@@ -23,13 +23,11 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
                         <iframe id="skyroom_iframe" src="<?php echo $iframe_src; ?>" width="100%"
                         height="100%" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 
-                        <!-- overlay logo (covers/appears instead of vendor logo inside iframe) -->
                         <a class="ck-vendor-overlay" href="https://skyroom.online" target="_blank" title="4khooneh">
                             <img src="https://4khooneh.org/img/ck-logo.png" alt="4khooneh">
                         </a>
                     </div>
 
-                    <!-- fullscreen button -->
                     <button class="ck-fullscreen-btn" title="تمام صفحه">⤢</button>
                     
                     <div class="ck-comment-header">
@@ -86,11 +84,8 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
 
                             $btn.on('click', function () {
                                 if (!isInFullscreen()) {
-                                    // try Fullscreen API on container
                                     var p = requestFullscreen($container.get(0));
-                                    // also add class to html to enforce margin-top and hide menubar
                                     $('html').addClass('ck-fullscreen-mode');
-                                    // fallback if API not available
                                     setTimeout(function () {
                                         if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
                                             enterFallback();
@@ -146,7 +141,6 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
         
     }
 
-    /* added styles for fullscreen button and mode */
     .ck-fullscreen-btn{
         position: fixed;
         left: 12px;
@@ -166,7 +160,6 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
     html.ck-fullscreen-mode .menubar{
         display: none !important;
     }
-    /* fallback full screen (if Fullscreen API unavailable) */
     .ryHeightD.fullScreen{
         position: fixed;
         top: 0;
@@ -178,25 +171,25 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
     }
     .ryHeightD { position: relative; }
 
-    /* نمایش لوگو در بالا-چپ روی iframe */
     .ck-vendor-overlay{
         position: absolute;
-        top: 12px;
-        left: 12px;
+        top: 4px;
+        left: 50%;
+        transform: translateX(-50%);
         z-index: 1000000;
         display: inline-block;
         text-decoration: none;
     }
     .ck-vendor-overlay img{
-        height: 36px; /* اندازه را بر اساس نیاز تنظیم کنید */
+        height: 36px; 
         display: block;
         pointer-events: auto;
     }
-    /* اگر می‌خواهید در حالت fullscreen هم نگه داشته شود */
     .ryHeightD.fullScreen .ck-vendor-overlay,
     html.ck-fullscreen-mode .ck-vendor-overlay{
-        top: 12px;
-        left: 12px;
+        top: 4px;
+        left: 50%;
+        transform: translateX(-50%);
     }
     .vendor_logo{
         display: none!important;
@@ -212,7 +205,6 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
         if (iframe) {
             iframe.addEventListener('load', function(){
                 try {
-                    // فقط اگر same-origin باشد قابل اجراست
                     var doc = iframe.contentDocument || iframe.contentWindow.document;
                     var img = doc.querySelector('.box-shrink.login-title img#vendor_logo') || doc.querySelector('.box-shrink.login-title img');
                     if (img) {
@@ -220,7 +212,6 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
                         img.alt = '4khooneh';
                     }
                 } catch (err) {
-                    // cross-origin -> دسترسی ممکن نیست
                     console.warn('Cannot access iframe DOM (cross-origin).', err);
                 }
             });

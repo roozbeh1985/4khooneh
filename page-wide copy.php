@@ -207,8 +207,7 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
                     var doc = iframe.contentDocument || iframe.contentWindow.document;
                     var img = doc.querySelector('.box-shrink.login-title img#vendor_logo') || doc.querySelector('.box-shrink.login-title img');
                     if (img) {
-                        img.src = 'https://4khooneh.org/img/ck-logo.png';
-                        img.alt = '4khooneh';
+                        img.style.display = 'none'; // مخفی کردن تصویر
                     }
                 } catch (err) {
                     console.warn('Cannot access iframe DOM (cross-origin).', err);

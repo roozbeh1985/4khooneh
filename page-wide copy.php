@@ -22,7 +22,7 @@ $iframe_src = esc_url('https://www.skyroom.online/ch/charkhooneh/' . rawurlencod
                     <div class="ryHeightD mt-5" style="position:relative;">
                         <iframe id="skyroom_iframe" src="<?php echo $iframe_src; ?>" width="100%" height="100%"
                             frameborder="0" allowfullscreen="true"
-                            allow="autoplay;fullscren;microphone;camera,display-capture"></iframe>
+                            allow="autoplay;fullscren;microphone;camera;display-capture"></iframe>
 
                         <a class="ck-vendor-overlay" href="https://skyroom.online" target="_blank" title="4khooneh">
                             <img src="https://4khooneh.org/img/ck-logo.png" alt="4khooneh">
@@ -93,14 +93,12 @@ $iframe_src = esc_url('https://www.skyroom.online/ch/charkhooneh/' . rawurlencod
                                         }
                                     }, 300);
                                 } else {
-                                    // exit
                                     exitFullscreen();
                                     exitFallback();
                                     $('html').removeClass('ck-fullscreen-mode');
                                 }
                             });
 
-                            // handle native fullscreen change (to remove our classes)
                             $(document).on('fullscreenchange webkitfullscreenchange mozfullscreenchange MSFullscreenChange', function () {
                                 if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
                                     exitFallback();

@@ -180,7 +180,7 @@ $iframe_src = esc_url('https://www.skyroom.online/ch/charkhooneh/' . rawurlencod
 
     .ck-vendor-overlay {
         position: absolute;
-        top: 36px;
+        top: 4px;
         left: 12px;
         transform: none;
         z-index: 1000000;

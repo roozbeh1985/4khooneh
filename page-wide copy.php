@@ -6,11 +6,11 @@ Template Name: OnlineCourse
 <?php include("header.php"); ?>
 
 <?php
-$course = get_post_meta( get_the_ID(), 'courseItem', true );
-if ( empty( $course ) ) {
+$course = get_post_meta(get_the_ID(), 'courseItem', true);
+if (empty($course)) {
     $course = 'computeronlinecourse';
 }
-$iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlencode( $course ) );
+$iframe_src = esc_url('https://www.skyroom.online/ch/charkhooneh/' . rawurlencode($course));
 ?>
 
 <div>
@@ -20,8 +20,9 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
 
                 <article class="ck-page-article w-100 ">
                     <div class="ryHeightD mt-5" style="position:relative;">
-                        <iframe id="skyroom_iframe" src="<?php echo $iframe_src; ?>" width="100%"
-                        height="100%" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+                        <iframe id="skyroom_iframe" src="<?php echo $iframe_src; ?>" width="100%" height="100%"
+                            frameborder="0" allowfullscreen="true"
+                            allow="autoplay;fullscren;microphone;camera,display-capture"></iframe>
 
                         <a class="ck-vendor-overlay" href="https://skyroom.online" target="_blank" title="4khooneh">
                             <img src="https://4khooneh.org/img/ck-logo.png" alt="4khooneh">
@@ -29,7 +30,7 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
                     </div>
 
                     <button class="ck-fullscreen-btn" title="تمام صفحه">⤢</button>
-                    
+
                     <div class="ck-comment-header">
                         <img src="<?php bloginfo('url'); ?>/img/comment-icom.png">
                         <h3>ارسال دیدگاه(نظرات، انتقادات و پیشنهادات خود را با ما در میان بگذارید.)</h3>
@@ -123,30 +124,32 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
     .ck-footer {
         display: none !important;
     }
-    .ryHeightD{
+
+    .ryHeightD {
         width: 100%;
         height: 100vh !important;
         max-height: 100vh;
         overflow: auto;
     }
-    .ryHeightD iframe{
+
+    .ryHeightD iframe {
         height: 100%;
         display: block;
         border: 0;
     }
-    .vendor_logo{
-        display:none!important;
-    }
-    .fullScreen{
-        
+
+    .vendor_logo {
+        display: none !important;
     }
 
-    .ck-fullscreen-btn{
+    .fullScreen {}
+
+    .ck-fullscreen-btn {
         position: fixed;
         left: 12px;
         bottom: 12px;
         z-index: 999999;
-        background: rgba(0,0,0,0.6);
+        background: rgba(0, 0, 0, 0.6);
         color: #fff;
         border: none;
         padding: 10px 12px;
@@ -154,13 +157,16 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
         cursor: pointer;
         font-size: 16px;
     }
-    html.ck-fullscreen-mode{
+
+    html.ck-fullscreen-mode {
         margin-top: 0 !important;
     }
-    html.ck-fullscreen-mode .menubar{
+
+    html.ck-fullscreen-mode .menubar {
         display: none !important;
     }
-    .ryHeightD.fullScreen{
+
+    .ryHeightD.fullScreen {
         position: fixed;
         top: 0;
         left: 0;
@@ -169,9 +175,12 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
         height: 100vh !important;
         z-index: 999998;
     }
-    .ryHeightD { position: relative; }
 
-    .ck-vendor-overlay{
+    .ryHeightD {
+        position: relative;
+    }
+
+    .ck-vendor-overlay {
         position: absolute;
         top: 36px;
         left: 12px;
@@ -180,34 +189,36 @@ $iframe_src = esc_url( 'https://www.skyroom.online/ch/charkhooneh/' . rawurlenco
         display: inline-block;
         text-decoration: none;
     }
-    .ck-vendor-overlay img{
-        height: 36px; 
+
+    .ck-vendor-overlay img {
+        height: 36px;
         display: block;
         pointer-events: auto;
     }
+
     .ryHeightD.fullScreen .ck-vendor-overlay,
-    html.ck-fullscreen-mode .ck-vendor-overlay{
+    html.ck-fullscreen-mode .ck-vendor-overlay {
         left: 50%;
         transform: translateX(-50%);
     }
-    .vendor_logo{
-        display: none!important;
+
+    .vendor_logo {
+        display: none !important;
     }
-    
 </style>
 <div style="display: none!important;">
     <?php include("footer.php") ?>
 </div>
 <script>
-    (function($){
+    (function ($) {
         var iframe = document.getElementById('skyroom_iframe');
         if (iframe) {
-            iframe.addEventListener('load', function(){
+            iframe.addEventListener('load', function () {
                 try {
                     var doc = iframe.contentDocument || iframe.contentWindow.document;
                     var img = doc.querySelector('.box-shrink.login-title img#vendor_logo') || doc.querySelector('.box-shrink.login-title img');
                     if (img) {
-                        img.style.display = 'none'; // مخفی کردن تصویر
+                        img.style.display = 'none';
                     }
                 } catch (err) {
                     console.warn('Cannot access iframe DOM (cross-origin).', err);

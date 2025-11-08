@@ -21,6 +21,9 @@ Template Name: namayandegiha
                         width: 100% !important;
 
                     }
+                    area:hover{
+                        cursor: pointer!important;
+                    }
 
                     #ck-map-namayandegiha {
                         zoom: 79%;

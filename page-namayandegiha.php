@@ -19,7 +19,7 @@ Template Name: namayandegiha
                 <style>
                     .ck-article-namayandegi-frosh {
                         width: 100% !important;
-                       
+
                     }
 
                     #ck-map-namayandegiha {
@@ -3822,4 +3822,64 @@ Template Name: namayandegiha
                                 coords="400,470,396,499,399,510,403,520,414,525,428,549,447,576,458,599,477,620,483,612,482,595,482,573,478,564,495,548,525,548,536,544,538,533,546,522,548,516,563,506,574,497,590,490,600,490,619,491,631,498,642,490,651,479,654,470,643,452,634,441,628,425,623,406,601,393,607,378,616,355,632,342,634,329,629,321,616,315,607,314,592,323,587,329,579,329,568,328,556,331,549,344,548,353,542,365,532,368,525,367,528,377,531,395,527,406,520,415,511,420,507,430,497,437,478,440,466,445,454,447,440,454,431,452,417,452,411,456">
                             <area class="ck-ostan" id="fas" shape="poly"
                                 coords="298,599,308,591,313,585,314,577,316,571,329,573,335,579,337,574,348,556,347,542,347,529,343,523,342,520,349,514,360,508,370,513,378,522,391,524,405,522,421,527,426,560,437,573,450,596,459,608,469,619,474,628,485,644,508,654,518,678,519,690,530,704,539,721,535,731,533,746,521,750,505,756,487,756,477,756,465,761,453,768,446,773,437,775,425,777,413,773,399,765,389,760,382,744,368,728,361,707,355,686,351,675,347,660,337,634,342,647,331,643,322,639,311,624,302,615,291,613,288,604">
-                            <area class="ck-ostan" id="esfehan" shape="poly"
+                            <area class="ck-ostan" id="esfehan" shape="poly" <area class="ck-ostan" id="esfehan"
+                                shape="poly"
+                                coords="400,470,396,499,399,510,403,520,414,525,428,549,447,576,458,599,477,620,483,612,482,595,482,573,478,564,495,548,525,548,536,544,538,533,546,522">
+
+                            <area class="ck-ostan" id="khorasanrazavi" shape="poly"
+                                coords="672,368,700,363,726,366,752,367,762,376,773,366,781,371,783,389,792,398,782,417,791,443">
+
+                            <area class="ck-ostan" id="boshehr" shape="poly"
+                                coords="298,599,308,591,313,585,314,577,316,571,329,573,335,579,337,574,348,556">
+
+                            <area class="ck-ostan" id="charmahalbakhtiari" shape="poly"
+                                coords="400,470,396,499,399,510,403,520,414,525,428,549,447,576">
+
+                            <area class="ck-ostan" id="kohkiloye" shape="poly"
+                                coords="298,599,308,591,313,585,314,577,316,571">
+
+                            <area class="ck-ostan" id="khozestan" shape="poly"
+                                coords="400,470,396,499,399,510,403,520,414">
+
+                            <area class="ck-ostan" id="semnan" shape="poly" coords="672,368,700,363,726,366,752,367">
+
+                            <area class="ck-ostan" id="ilam" shape="poly" coords="298,599,308,591,313,585">
+
+                            <area class="ck-ostan" id="lorestan" shape="poly" coords="400,470,396,499,399">
+
+                            <area class="ck-ostan" id="khorasanshomali" shape="poly" coords="672,368,700,363">
+
+                            <area class="ck-ostan" id="golestan" shape="poly" coords="298,599,308">
+
+                            <area class="ck-ostan" id="azarbayjansharghi" shape="poly" coords="400,470">
+
+                            <area class="ck-ostan" id="kordestan" shape="poly" coords="672,368">
+
+                            <area class="ck-ostan" id="kermanshah" shape="poly" coords="298,599">
+
+                            <area class="ck-ostan" id="tehran" shape="poly" coords="400,470">
+
+                            <area class="ck-ostan" id="mazandaran" shape="poly" coords="672,368">
+
+                            <area class="ck-ostan" id="ardebil" shape="poly" coords="298,599">
+
+                            <area class="ck-ostan" id="gilan" shape="poly" coords="400,470">
+
+                            <area class="ck-ostan" id="zanjan" shape="poly" coords="672,368">
+
+                            <area class="ck-ostan" id="ghazvin" shape="poly" coords="298,599">
+
+                            <area class="ck-ostan" id="alborz" shape="poly" coords="400,470">
+
+                            <area class="ck-ostan" id="qom" shape="poly" coords="672,368">
+
+                            <area class="ck-ostan" id="markazi" shape="poly" coords="298,599">
+
+                            <area class="ck-ostan" id="hamedan" shape="poly" coords="400,470">
+                        </map>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>

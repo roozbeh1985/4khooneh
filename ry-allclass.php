@@ -184,11 +184,7 @@ include("header.php"); ?>
                                                     </h3>
                                                 </a>
 
-                                                <div class="d-none col-md-12 float-left text-center ry-rateeeee">
-                                                    <?php if (function_exists('the_ratings')) {
-                                                        the_ratings();
-                                                    } ?>
-                                                </div>
+                                                
                                                 <a href="<?php if ($coming_soon != "ok") {
                                                     echo get_permalink($loop->post->ID);
                                                 } else {

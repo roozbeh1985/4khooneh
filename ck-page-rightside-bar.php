@@ -35,6 +35,11 @@
         <img alt="فیلم آموزشی" src="<?php bloginfo('url'); ?>/wp-content/uploads/2019/12/moshaverevahedayattahsili.jpg">
     </div>
 </a>
+<a href="<?php bloginfo('url') ?>/نمونه-سوالات-المپیاد-کامپیوتر/">
+    <div class="ck-page-right-menu-img">
+        <img alt="سوالات المپیاد" src="<?php bloginfo('url'); ?>/wp-content/uploads/2025/11/Olympiad-1.jpg">
+    </div>
+</a>
 <a href="<?php bloginfo('url') ?>/کارنامه-قبول-شدگان-کنکور-هنرستان">
     <div class="ck-page-right-menu-img">
         <img alt="کارنامه قبول شدگان" src="<?php bloginfo('url'); ?>/img/karname.png">

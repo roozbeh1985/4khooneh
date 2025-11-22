@@ -1,4 +1,4 @@
-window.onload = function () {
+document.addEventListener('DOMContentLoaded', function () {
     var mySwiper1 = new Swiper('.swiper-container1', {
         // Optional parameters
         direction: 'horizontal',
@@ -146,4 +146,4 @@ window.onload = function () {
         }
     });
 
-};
+});

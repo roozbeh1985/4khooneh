@@ -419,7 +419,7 @@ $has_not_ostad = get_post_meta($post->ID, 'بدون استاد', true);
                                     ?>
                                     <div class="col-lg-12 ry-product-detail ry-shadow">
                                         <script>
-                                            window.onload = function () {
+                                            document.addEventListener('DOMContentLoaded', function () {
                                                 var mySwiper2 = new Swiper('.swiper-container2', {
                                                     // Optional parameters
                                                     direction: 'horizontal',
@@ -456,7 +456,7 @@ $has_not_ostad = get_post_meta($post->ID, 'بدون استاد', true);
                                                         }
                                                     }
                                                 });
-                                            };
+                                            });
                                         </script>
                                         <div class="ry-section" id="section">
                                             <div class="swiper-container swiper-container2" dir="rtl">

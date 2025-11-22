@@ -910,7 +910,7 @@ setPostViews(get_the_ID());
                                     <div class="ck-tozih">
                                         <script>
                                             //---------------------swiper book-----------------------------
-                                            window.onload = function () {
+                                            document.addEventListener('DOMContentLoaded', function () {
                                                 var mySwiper1 = new Swiper('.swiper-container1', {
                                                     direction: 'horizontal',
                                                     slidesOffsetBefore: 0,
@@ -942,7 +942,7 @@ setPostViews(get_the_ID());
                                                         }
                                                     }
                                                 });
-                                            };
+                                            });
                                         </script>
                                         <div class="swiper-container1" dir="rtl">
                                             <!-- Additional required wrapper -->

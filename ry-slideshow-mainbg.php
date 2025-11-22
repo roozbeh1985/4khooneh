@@ -1,4 +1,4 @@
-<script src="<?php bloginfo('template_url') ?>/js/slideshowconfig.js"></script>
+<script src="<?php bloginfo('template_url') ?>/js/slideshowconfig.js?v=1.001"></script>
 <div class="section rounded-3 mt-3 ry-round-slideShow"  >
     <div class="swiper-container swiper-container1" dir="rtl">
         <div class="swiper-wrapper">

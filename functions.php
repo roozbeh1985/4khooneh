@@ -51,6 +51,17 @@ function get_gozineha()
     $json = wp_json_encode($gozineha);
     wp_send_json($json);
 }
+// Force WordPress to use its own jQuery and disable theme's jQuery
+function use_core_jquery_only() {
+    // Remove theme's manually included jQuery
+    wp_dequeue_script('theme-jquery');
+    wp_deregister_script('theme-jquery');
+
+    // Load WordPress default jQuery
+    wp_deregister_script('jquery');
+    wp_enqueue_script('jquery');
+}
+add_action('wp_enqueue_scripts', 'use_core_jquery_only', 100);
 
 ////////////////////////////////////////////////////////////////////////
 // BuddyPress Profile URL Integration //////////////////////////////////

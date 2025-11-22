@@ -24,12 +24,6 @@
         <img alt="مصاحبه با رتبه های برتر کنکور الکتروتکنیک" src="https://4khooneh.org/wp-content/uploads/2022/12/hasanib.jpg">
     </div>
 </a>
-
-
-
-
-
-	
 <a href="<?php bloginfo('url') ?>/مشاوره-های-هنرستان/">
     <div class="ck-page-right-menu-img">
         <img alt="فیلم آموزشی" src="<?php bloginfo('url'); ?>/wp-content/uploads/2019/12/moshaverevahedayattahsili.jpg">

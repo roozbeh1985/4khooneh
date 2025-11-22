@@ -22,8 +22,7 @@
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/examples.css?v=1.0.0.2"/>
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/style.css?v=1.9.4.081">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/swiper/css/swiper.min.css">
-    <script src="<?php bloginfo('template_url'); ?>/swiper/js/swiper.min1.js"></script>
-    <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
+    <!-- Swiper & jQuery are enqueued from functions.php (recommended) -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <script src="<?php bloginfo('template_url'); ?>/js/jquery.lazy.min.js"></script>
 	<link rel="icon" type="image/x-icon" href="https://4khooneh.org/favicon.ico">	

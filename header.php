@@ -138,7 +138,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         gtag('js', new Date());
 
         gtag('config', 'UA-111352272-1');
-    </script> 
+    </script>
+    <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>

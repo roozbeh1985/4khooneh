@@ -98,8 +98,8 @@ include("header.php"); ?>
                                                     $image = wp_get_attachment_image_src(get_post_thumbnail_id($image_id), 'single-post-thumbnail');
                                                     ?>
                                                     <?php ?>
-                                                    <img class="lazy ck-book-img" data-src="<?php echo $image[0]; ?>"
-                                                         src="<?php bloginfo('url'); ?>/img/lazyloud.jpg"
+                                                    <img class=" ck-book-img" src="<?php echo $image[0]; ?>"
+                                                         srcOld="<?php bloginfo('url'); ?>/img/lazyloud.jpg"
                                                          alt="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
                                                     <?php
                                                     if ($coming_soon == "ok") {
@@ -138,9 +138,9 @@ include("header.php"); ?>
                                                         <?php
                                                         if ($has_not_ostad !== "ok") {
                                                             ?>
-                                                            <img class="lazy float-right"
-                                                                 src="<?php bloginfo('url') ?>/wp-content/uploads/2019/12/user2.png"
-                                                                 data-src="<?php echo $imag_logo ?>"
+                                                            <img class=" float-right"
+                                                                 srcLogo="<?php bloginfo('url') ?>/wp-content/uploads/2019/12/user2.png"
+                                                                 src="<?php echo $imag_logo ?>"
                                                                  alt="<?php echo $author_display_name; ?>">
                                                             <p class="float-right ry-aurtorname">
                                                                 <?php echo "استاد:" . $ostad_name; ?>

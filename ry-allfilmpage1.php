@@ -92,8 +92,8 @@ include("header.php"); ?>
                                                 $image = wp_get_attachment_image_src(get_post_thumbnail_id($image_id), 'single-post-thumbnail');
                                                 ?>
                                                 <?php ?>
-                                                <img class="lazy ck-book-img" data-src="<?php echo $image[0]; ?>"
-                                                    src="<?php bloginfo('url'); ?>/img/lazyloud.jpg"
+                                                <img class="lazy ck-book-img" src="<?php echo $image[0]; ?>"
+                                                    src-old="<?php bloginfo('url'); ?>/img/lazyloud.jpg"
                                                     alt="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
                                                 <?php
                                                 if ($coming_soon == "ok") {

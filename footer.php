@@ -37,7 +37,71 @@
 	})();
 </script>
 
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$(function ($) {
+			$("img.lazy").Lazy({ effect: "fadeIn" });
+		});
+		//----------------------------------------------------
+		$(".ck-book").hover(
+			function () {
+				$(this).addClass("ck-active-book");
+			},
+			function () {
+				$(this).removeClass("ck-active-book");
+			}
+		);
+		//-------------------------------------------------
+		$(".ck-home").click(function () {
+			location.replace("https://4khooneh.org");
+		});
+		$(".ck-mobile-menu").click(function () {
+			$(".ck-moblie-item").animate({ width: 'toggle' }, 250);
+			$(".ck-moblie-display").animate({ width: 'toggle' }, 250);
+		});
+		$(".ck-moblie-display").click(function () {
+			$(".ck-moblie-item").animate({ width: 'toggle' }, 250);
+			$(".ck-moblie-display").animate({ width: 'toggle' }, 250);
+		});
+		$(".ck-first").click(function () {
+			var display = $(this).find(".ck-menu-level2-container").css("display");
+			if (display == "none") {
+				$(this).find(".ck-menu-level2-container").slideDown();
+				$(this).find(".ck-halat").removeClass("fa-angle-down");
+				$(this).find(".ck-halat").addClass("fa-angle-up");
+			}
+			else {
+				$(this).find(".ck-menu-level2-container").slideUp();
+				$(this).find(".ck-halat").removeClass("fa-angle-up");
+				$(this).find(".ck-halat").addClass("fa-angle-down");
+			}
+		});
+		//-----------------------modal----------------------------------------
+		$('#myModal').on('shown.bs.modal', function () {
+			$('#myInput').trigger('focus')
+		});
+
+		//----------------------basket---------------------------------------------
+		$(".ck-basket-content").hover(
+			function () {
+				// $("").slideDown('fast');
+				$(this).find(".ck-in-baskets").css("display", "block");
+				$(this).find(".ck-in-baskets").animate({
+					opacity: 1
+				}, 300, function () {
+				});
+			},
+			function () {
+				// $("").slideUp('fast');
+				$(this).find(".ck-in-baskets").css("opacity", "0");
+				$(this).find(".ck-in-baskets").css("display", "none");
+			}
+		);
+	});
+</script>
 <?php wp_footer(); ?>
 
 </body>
+
 </html>

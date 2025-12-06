@@ -159,10 +159,22 @@ include("header.php"); ?>
                                                 } else {
                                                     echo "";
                                                 } ?>">
-                                                    <?php if (((1 - ((int)($final_price) / (int)($regular_price))) * 100) != 0 && $in_stock_movie == "ok") { ?>
-                                                        <span class="ry-bargain">   <?php echo (int)((1 - ((int)($final_price) / (int)($regular_price))) * 100) ?>
-                                                            % </span>
-                                                    <?php } ?>
+                                                    <?php
+                                                    // Calculate discount percent safely to avoid float truncation (use round)
+                                                    if ($in_stock_movie == "ok") {
+                                                        $regular = (float) $regular_price;
+                                                        $final = (float) $final_price;
+                                                        $discount = 0;
+                                                        if ($regular > 0 && $final < $regular) {
+                                                            $discount = (int) round((($regular - $final) / $regular) * 100);
+                                                        }
+                                                        if ($discount != 0) {
+                                                            ?>
+                                                            <span class="ry-bargain"><?php echo $discount; ?>%</span>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>
                                                     <?php
                                                     $image_id = $loop->post->ID;
                                                     $image = wp_get_attachment_image_src(get_post_thumbnail_id($image_id), 'single-post-thumbnail');

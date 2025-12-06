@@ -117,8 +117,7 @@ setPostViews(get_the_ID());
                                                     } else {
                                                         ?>
                                                         <span
-                                                            class="ry-bargain">   <?php echo (int)((1 - ($final_price / $regular_price)) * 100) ?>
-                                                            % </span>
+                                                            class="ry-bargain">   <?php echo round((1 - ($final_price / $regular_price)) * 100) ?> % </span>
                                                     <?php } ?>
 
 

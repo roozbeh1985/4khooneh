@@ -29,9 +29,9 @@
         <img alt="فیلم آموزشی" src="<?php bloginfo('url'); ?>/wp-content/uploads/2019/12/moshaverevahedayattahsili.jpg">
     </div>
 </a>
-<a href="<?php bloginfo('url') ?>/نمونه-سوالات-المپیاد-کامپیوتر/">
+<a href="<?php bloginfo('url') ?>/دانلود-رایگان-گام-به-گام-فنی-و-حرف/">
     <div class="ck-page-right-menu-img">
-        <img alt="سوالات المپیاد" src="<?php bloginfo('url'); ?>/wp-content/uploads/2025/11/Olympiad-1.jpg">
+        <img alt="گام به گام" src="<?php bloginfo('url'); ?>/wp-content/uploads/2025/12/IMG_20251206_083850_490.jpg">
     </div>
 </a>
 <a href="<?php bloginfo('url') ?>/کارنامه-قبول-شدگان-کنکور-هنرستان">

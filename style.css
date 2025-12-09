@@ -32,7 +32,9 @@ Version: 1.0
 .f-12 {
     font-size: 12px;
 }
-
+.f-12-f {
+    font-size: 12px!important;
+}
 .f-26 {
     color: #264172!important;
 }

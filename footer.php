@@ -101,15 +101,16 @@
 	});
 </script>
 <script type="text/javascript">
-        window.RAYCHAT_TOKEN = "98e588f2-fda8-4c87-a2a0-73258a10f829";
-        (function () {
-            d = document;
-            s = d.createElement("script");
-            s.src = "https://widget-react.raychat.io/install/widget.js";
-            s.async = 1;
-            d.getElementsByTagName("head")[0].appendChild(s);
-        })();
-    </script>
+  window.RAYCHAT_TOKEN = "98e588f2-fda8-4c87-a2a0-73258a10f829";
+  window.LOAD_TYPE = "SEO_FRIENDLY";
+  (function () {
+    d = document;
+    s = d.createElement("script");
+    s.src = "https://widget-react.raychat.io/install/widget.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })();
+</script>
 <?php wp_footer(); ?>
 
 </body>

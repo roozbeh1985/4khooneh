@@ -35,7 +35,7 @@
             <a href="<?php bloginfo('url') ?>/مشاوره-های-هنرستان/"><li>مشاوره تحصیلی</li></a>
 
         </ul>
-        <ul>
+        <ul class="d-none">
             <li class="ck-first">خرید محصولات</li>
             <a href="<?php bloginfo('url') ?>/هنرستان/"> <li>هنرستان</li></a>
             <a href="<?php bloginfo('url') ?>/آزمون-استخدامی/"> <li>آزمون استخدامی</li></a>

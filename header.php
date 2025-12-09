@@ -65,7 +65,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   })();
 </script>
     <?php wp_head(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/risponsive.css?v=1.3.1.54">
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/risponsive.css?v=1.3.1.55">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111352272-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];

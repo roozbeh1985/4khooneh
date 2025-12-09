@@ -5,6 +5,7 @@ Template Name: newIndex
 include("header.php");
 global $post;
 $post_ids = $post->ID;
+echo $post_ids;
 // $post_ids = 116859;
 $all_content = array(
     0 => array(

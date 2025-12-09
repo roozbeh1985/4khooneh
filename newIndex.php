@@ -42,17 +42,17 @@ $all_content = array(
         "main" => "ok",
         "color" => "#feead8",
     ),
-    5 => array(
-        "link" => "https://4khooneh.org/%D9%87%D9%86%D8%B1%D8%B3%D8%AA%D8%A7%D9%86/%D9%BE%D8%A7%DB%8C%D9%87-%D8%AF%D9%87%D9%85/%D9%81%DB%8C%D9%84%D9%85-%D8%A2%D9%85%D9%88%D8%B2%D8%B4%DB%8C-%D9%BE%D8%A7%DB%8C%D9%87-%D8%AF%D9%87%D9%85/",
-        "img" => "https://4khooneh.org/wp-content/uploads/2022/12/hp1.png",
-        "txt" => "فیلم‌های آموزشی",
+     5 => array(
+        "link" => "https://4khooneh.org/%da%a9%d9%86%da%a9%d9%88%d8%b1-%d9%87%d9%86%d8%b1/",
+        "img" => "https://4khooneh.org/wp-content/uploads/2025/12/kh.png",
+        "txt" => "کنکور هنر",
         "main" => "ok",
         "color" => "#feead8",
     ),
     6 => array(
-        "link" => "https://4khooneh.org/%d9%85%d8%b5%d8%a7%d8%ad%d8%a8%d9%87-%d8%a8%d8%a7-%d8%b1%d8%aa%d8%a8%d9%87-%d9%87%d8%a7%db%8c-%d8%a8%d8%b1%d8%aa%d8%b1-%da%a9%d9%86%da%a9%d9%88%d8%b1/",
-        "img" => "https://4khooneh.org/wp-content/uploads/2022/12/hp21.png",
-        "txt" => "مصاحبه با رتبه‌های برتر",
+        "link" => "https://4khooneh.org/%D9%87%D9%86%D8%B1%D8%B3%D8%AA%D8%A7%D9%86/%D9%BE%D8%A7%DB%8C%D9%87-%D8%AF%D9%87%D9%85/%D9%81%DB%8C%D9%84%D9%85-%D8%A2%D9%85%D9%88%D8%B2%D8%B4%DB%8C-%D9%BE%D8%A7%DB%8C%D9%87-%D8%AF%D9%87%D9%85/",
+        "img" => "https://4khooneh.org/wp-content/uploads/2022/12/hp1.png",
+        "txt" => "فیلم‌های آموزشی",
         "main" => "no",
         "color" => "#feead8",
     ),
@@ -130,11 +130,12 @@ $all_content = array(
         "color" => "#efff00",
     ),
     18 => array(
-        "link" => "https://4khooneh.org/%D9%85%D8%B9%D8%B1%D9%81%DB%8C-%D8%B1%D8%B4%D8%AA%D9%87-%D9%87%D8%A7%DB%8C-%D9%87%D9%86%D8%B1%D8%B3%D8%AA%D8%A7%D9%86/",
-        "img" => "https://4khooneh.org/wp-content/uploads/2022/12/hp8.png",
-        "txt" => "رشته‌های هنرستان",
+        "link" => "https://4khooneh.org/%d9%85%d8%b5%d8%a7%d8%ad%d8%a8%d9%87-%d8%a8%d8%a7-%d8%b1%d8%aa%d8%a8%d9%87-%d9%87%d8%a7%db%8c-%d8%a8%d8%b1%d8%aa%d8%b1-%da%a9%d9%86%da%a9%d9%88%d8%b1/",
+        "img" => "https://4khooneh.org/wp-content/uploads/2022/12/hp21.png",
+        "txt" => "مصاحبه با رتبه‌های برتر",
         "main" => "no",
     ),
+    
     19 => array(
         "link" => "https://4khooneh.org/%D9%85%D8%B9%D8%B1%D9%81%DB%8C-%D9%87%D9%86%D8%B1%D8%B3%D8%AA%D8%A7%D9%86-%D9%87%D8%A7/",
         "img" => "https://4khooneh.org/wp-content/uploads/2022/12/hp17.png",

@@ -290,7 +290,7 @@ if (isset($_POST['rysubmit'])) {
                                                         alt="<?php echo $content['txt'] ?>"
                                                         title="<?php echo $content['txt'] ?>" class="mt-3 mx-auto"
                                                         width="42">
-                                                    <p class="mt-4 mb-3 f-12 text-dark"><?php echo $content['txt'] ?></p>
+                                                    <h2 class="mt-4 mb-3 f-12 text-dark"><?php echo $content['txt'] ?></h2>
                                                 </div>
                                             </a>
 

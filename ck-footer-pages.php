@@ -83,8 +83,8 @@
     </div>
 
     <div class="clear"></div>
-    <div class="ck-footer-low text-center f-12">
-        <div> کلیه حقوق مادی و معنوی این وب سایت متعلق به انتشارات چهارخونه می باشد.</div>
+    <div class="ck-footer-low text-center f-12 pt-1 pb-1">
+        <div class="text-white f-12"> کلیه حقوق مادی و معنوی این وب سایت متعلق به انتشارات چهارخونه می باشد.</div>
     </div>
 
     <div id="ryBlureBack" class="ryMdal"></div>

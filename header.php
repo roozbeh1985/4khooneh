@@ -339,14 +339,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             //  echo"</pre>";
             $i = 1;
             ?>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/هنرستان/پایه-دهم/فیلم-آموزشی-پایه-دهم/">
-                    <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i>فیلم های آموزشی
-                    <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
-            </li>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/مشاوره-های-هنرستان/">
-                    <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i>مشاوره و هدایت تحصیلی
-                    <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
-            </li>
+            
+        
             <?php
 
             foreach ($menu_item as $x => $x_value) {
@@ -387,66 +381,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <?php } ?>
                 <?php $i++;
             } ?>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/مصاحبه-با-رتبه-یک-الکتروتکنیک/">
-                    <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i> مصاحبه با رتبه ۱ کنکور الکتروتکنیک
-                    <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
-            </li>
             <li class="ck-first"><a href="<?php bloginfo('url') ?>/هنرستان/پایه-دهم/فیلم-آموزشی-پایه-دهم/">
                     <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i>فیلم های آموزشی
                     <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
             </li>
+            
+           
             <li class="ck-first"><a href="<?php bloginfo('url') ?>/سوالات-متداول/">
                     <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i>سوالات متداول
                     <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
             </li>
             
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/فیلم-های-آماده-برای-فروش/">
-                    <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i>فیلم های آماده برای فروش
-                    <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
-            </li>
+           
             
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/کارنامه-قبول-شدگان-کنکور-هنرستان/">
-                    <i class="fa fa-angle-down ck-halat ck-4" aria-hidden="true"></i>کارنامه رتبه های قبولی
-                    <i class="fa fa-circle ck-4" aria-hidden="true"></i></a>
-            </li>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/گام-به-گام-های-هنرستان/">
-                    <i class="fa fa-angle-down ck-halat ck-3" aria-hidden="true"></i>فروش ویژه کتاب های گام به گام
-                    هنرستان
-                    <i class="fa fa-circle ck-3" aria-hidden="true"></i></a>
-            </li>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/معرفی-رشته-های-هنرستان/">
-                    <i class="fa fa-angle-down ck-halat ck-2" aria-hidden="true"></i>آشنایی با رشته های هنرستان
-                    <i class="fa fa-circle ck-2" aria-hidden="true"></i></a>
-            </li>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/کنکورهای-آزمایشی-هنرستان/">
-                    <i class="fa fa-angle-down ck-halat ck-1" aria-hidden="true"></i>کنکور های آزمایشی
-                    <i class="fa fa-circle ck-1" aria-hidden="true"></i></a>
-            </li>
-
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/معرفی-دانشگاه-ها">
-                    <i class="fa fa-angle-down ck-halat ck-5" aria-hidden="true"></i>معرفی دانشگاه ها
-                    <i class="fa fa-circle ck-5" aria-hidden="true"></i></a>
-            </li>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/معرفی-هنرستان-ها/">
-                    <i class="fa fa-angle-down ck-halat ck-4" aria-hidden="true"></i>معرفی هنرستان ها
-                    <i class="fa fa-circle ck-4" aria-hidden="true"></i></a>
-            </li>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/آثار-برگزیده-هنرجویان/">
-                    <i class="fa fa-angle-down ck-halat ck-3" aria-hidden="true"></i>آثار برگزیده هنرجویان
-                    <i class="fa fa-circle ck-3" aria-hidden="true"></i></a>
-            </li>
+           
             <li class="ck-first"><a href="<?php bloginfo('url') ?>/فیلم-آموزش-راهنمای-خرید-اینترنتی/">
                     <i class="fa fa-angle-down ck-halat ck-2" aria-hidden="true"></i>راهنمای خرید
                     <i class="fa fa-circle ck-2" aria-hidden="true"></i></a>
             </li>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/نمایندگی-های-فروش">
-                    <i class="fa fa-angle-down ck-halat ck-1" aria-hidden="true"></i>نمایندگی های فروش
-                    <i class="fa fa-circle ck-1" aria-hidden="true"></i></a>
-            </li>
-            <li class="ck-first"><a href="<?php bloginfo('url') ?>/مرسولات-پستی">
-                    <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i>مرسوله های پستی
-                    <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
-            </li>
+           
             <li class="ck-first"><a href="<?php bloginfo('url') ?>/تماس-با-ما">
                     <i class="fa fa-angle-down ck-halat ck-5" aria-hidden="true"></i>تماس با ما
                     <i class="fa fa-circle ck-5" aria-hidden="true"></i></a>

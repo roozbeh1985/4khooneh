@@ -83,7 +83,7 @@
     </div>
 
     <div class="clear"></div>
-    <div class="ck-footer-low">
+    <div class="ck-footer-low text-center f-12">
         <div> کلیه حقوق مادی و معنوی این وب سایت متعلق به انتشارات چهارخونه می باشد.</div>
     </div>
 

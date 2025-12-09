@@ -525,9 +525,7 @@ if (isset($_POST['rysubmit'])) {
                                 <div class="col-lg-12 ry-product-caroser ">
                                     <?php include("ry-film-best-caroser.php") ?>
                                 </div>
-                                <div class="col-lg-12 ry-product-caroser ">
-                                    <?php include("ry-film-new-caroser.php") ?>
-                                </div>
+                                
                             </div>
                         </article>
                         <div class="clear"></div>

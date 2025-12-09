@@ -58,16 +58,50 @@
     </script>
     <![endif]-->
 
-    <!-- <script type="text/javascript">
-        window.RAYCHAT_TOKEN = "98e588f2-fda8-4c87-a2a0-73258a10f829";
+    <script type="text/javascript">
         (function () {
-            d = document;
-            s = d.createElement("script");
-            s.src = "https://widget-react.raychat.io/install/widget.js";
-            s.async = 1;
-            d.getElementsByTagName("head")[0].appendChild(s);
+            window.RAYCHAT_TOKEN = "98e588f2-fda8-4c87-a2a0-73258a10f829";
+
+            var MAX_RETRIES = 3;
+            var BASE_DELAY = 1500; // ms
+
+            function loadRaychat(attempt) {
+                attempt = attempt || 1;
+                if (window.__RAYCHAT_LOADED__) return;
+                var d = document;
+                var head = d.getElementsByTagName('head')[0] || d.documentElement;
+                var s = d.createElement('script');
+                s.src = 'https://widget-react.raychat.io/install/widget.js';
+                s.async = true;
+
+                s.onload = function () {
+                    window.__RAYCHAT_LOADED__ = true;
+                    console.info('Raychat loaded (attempt ' + attempt + ')');
+                };
+
+                s.onerror = function () {
+                    console.warn('Raychat failed to load (attempt ' + attempt + ')');
+                    // remove the failed script node to avoid duplicates
+                    try { head.removeChild(s); } catch (e) { }
+                    if (attempt < MAX_RETRIES) {
+                        var delay = BASE_DELAY * attempt;
+                        setTimeout(function () { loadRaychat(attempt + 1); }, delay);
+                    } else {
+                        console.error('Raychat failed after ' + MAX_RETRIES + ' attempts.');
+                        // Optional: ارسال رویداد به آنالیتیکس یا fallback دلخواه
+                    }
+                };
+
+                head.appendChild(s);
+            }
+
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                loadRaychat(1);
+            } else {
+                document.addEventListener('DOMContentLoaded', function () { loadRaychat(1); });
+            }
         })();
-    </script> -->
+    </script>
     <?php wp_head(); ?>
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/risponsive.css?v=1.3.1.56">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111352272-1"></script>

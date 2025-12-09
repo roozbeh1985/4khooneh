@@ -5,8 +5,7 @@ Template Name: newIndex
 include("header.php");
 global $post;
 $post_ids = $post->ID;
-echo $post_ids;
-// $post_ids = 116859;
+
 $all_content = array(
     0 => array(
         "link" => "https://4khooneh.org/%d8%a2%d8%b2%d9%85%d9%88%d9%86-%d8%a7%d8%b3%d8%aa%d8%ae%d8%af%d8%a7%d9%85%db%8c/",

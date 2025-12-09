@@ -4,7 +4,8 @@ Template Name: newIndex
 */
 include("header.php");
 global $post;
-$post_ids = $post->ID;
+// $post_ids = $post->ID;
+$post_ids = 116859;
 if (isset($_POST['rysubmit'])) {
     $att = array();
 

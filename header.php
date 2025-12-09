@@ -382,13 +382,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <?php $i++;
             } ?>
             <li class="ck-first"><a href="<?php bloginfo('url') ?>/هنرستان/پایه-دهم/فیلم-آموزشی-پایه-دهم/">
-                    <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i>فیلم های آموزشی
+                    فیلم های آموزشی
                     <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
             </li>
             
            
             <li class="ck-first"><a href="<?php bloginfo('url') ?>/سوالات-متداول/">
-                    <i class="fa fa-angle-down ck-halat ck-6" aria-hidden="true"></i>سوالات متداول
+                   سوالات متداول
                     <i class="fa fa-circle ck-6" aria-hidden="true"></i></a>
             </li>
             
@@ -396,12 +396,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
            
             <li class="ck-first"><a href="<?php bloginfo('url') ?>/فیلم-آموزش-راهنمای-خرید-اینترنتی/">
-                    <i class="fa fa-angle-down ck-halat ck-2" aria-hidden="true"></i>راهنمای خرید
+                    راهنمای خرید
                     <i class="fa fa-circle ck-2" aria-hidden="true"></i></a>
             </li>
            
             <li class="ck-first"><a href="<?php bloginfo('url') ?>/تماس-با-ما">
-                    <i class="fa fa-angle-down ck-halat ck-5" aria-hidden="true"></i>تماس با ما
+                    تماس با ما
                     <i class="fa fa-circle ck-5" aria-hidden="true"></i></a>
             </li>
             

@@ -5521,13 +5521,6 @@ table {
     box-shadow: 0 12px 30px rgba(60, 90, 180, 0.18);
 }
 
-table tr:first-child td {
-    background: linear-gradient(135deg, #4f46e5, #6366f1);
-    color: #ffffff;
-    font-weight: 700;
-    padding: 16px;
-    letter-spacing: 0.3px;
-}
 
 table td {
     padding: 14px 16px;

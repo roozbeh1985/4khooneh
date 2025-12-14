@@ -2180,6 +2180,15 @@ a {
 .ck-page-content .ck-page-article table th,
 .ck-page-content .ck-page-article table td {
     padding: 15px;
+    text-align: center;
+}
+table th{
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 16px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
 }
 
 

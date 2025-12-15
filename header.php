@@ -115,7 +115,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 }
                                 ?>>
                                     <div class="nav-column">
-                                        <ul class="nav inner">
+                                        <ul class="">
                                             <?php
                                             foreach ($menu_item[$x]["children"] as $y => $y_value) {
                                                 $sub_menu1[$n] = $y;

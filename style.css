@@ -5468,7 +5468,6 @@ p#timer {
 .ryBtnNext {
     position: absolute;
     top: 47% !important;
-    %;
     right: 0 !important;
     padding: 6px 3px 1px 5px;
     z-index: 1;

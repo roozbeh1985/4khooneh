@@ -801,29 +801,7 @@ function ry_register_all_meta_box()
 }
 add_action('add_meta_boxes', 'ry_register_all_meta_box');
 
-function ry_save_all_meta_box($post_id)
-{
-    foreach ($_POST as $field => $value) {
-        if (strpos($field, 'ry_meta_') === 0 && !str_ends_with($field, '_key') && !str_ends_with($field, '_serialized')) {
-            $key_field = $field . "_key";
-            $ser_field = $field . "_serialized";
 
-            if (isset($_POST[$key_field])) {
-                $meta_key = sanitize_text_field($_POST[$key_field]);
-                $is_serialized = isset($_POST[$ser_field]) && $_POST[$ser_field] == "1";
-
-                if ($is_serialized) {
-                    $lines = array_filter(array_map('trim', explode("\n", $value)));
-                    update_post_meta($post_id, $meta_key, serialize($lines));
-                } else {
-                    $meta_value = sanitize_textarea_field($value);
-                    update_post_meta($post_id, $meta_key, $meta_value);
-                }
-            }
-        }
-    }
-}
-add_action('save_post', 'ry_save_all_meta_box');
 
 //--------------emoji woocommerce--*---------
 add_filter('manage_edit-shop_order_columns', 'add_product_type_column_after_date', 20);

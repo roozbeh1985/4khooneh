@@ -122,6 +122,7 @@ if (isset($_POST['rysubmit'])) {
                                     </div>
                                     <div class="row">
                                         <?php
+                                        echo $post->ID;
                                         $all_content=unserialize(get_post_meta($post->ID, 'allCat', true));
                                         foreach ( $all_content as $content) {
                                             $color='white';

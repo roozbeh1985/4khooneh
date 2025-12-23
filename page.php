@@ -30,7 +30,7 @@ setPostViews(get_the_ID());
                         <article class="ck-page-article">
                             <?php
                             global $post;
-                            print_r(get_post_meta($post->ID, 'allcat', true));
+                            
                             if (get_post_meta($post->ID, 'allcat', true)) {
                                 ?>
                                 <div class="container mb-4 p-1">

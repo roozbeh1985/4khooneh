@@ -645,12 +645,12 @@ setPostViews(get_the_ID());
                                                             </div>
                                                             <?php
                                                         }
-                                                        if ($product->get_attribute('تعداد صفحات')) {
+                                                        if ($product->get_attribute('tedad-safehat')) {
                                                             ?>
                                                             <div class="author">
                                                                 <i class="fa fa-book float-right"></i>
                                                                 <span class="float-right">تعداد صفحات:</span>
-                                                                <p class="float-right"><?php echo $product->get_attribute('تعداد صفحات') ?></p>
+                                                                <p class="float-right"><?php echo $product->get_attribute('tedad-safehat') ?></p>
                                                                 <div class="clear"></div>
                                                             </div>
                                                             <?php

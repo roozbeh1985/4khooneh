@@ -1,6 +1,6 @@
 <div class="ry-section">
     <div class="swiper-container swiper-container3" dir="rtl">
-        <h2 class="text-right ry-head-carosel f-14"><h2 class="ry-ppaa">پرفروشترین ها </h2>
+        <h2 class="text-right ry-head-carosel f-14 mb-2"><span class="ry-ppaa">پرفروشترین ها </span>
         </h2>
         <div class="swiper-wrapper swiper-wrapper3">
             <?php

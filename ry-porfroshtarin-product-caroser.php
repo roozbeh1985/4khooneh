@@ -1,7 +1,7 @@
 <div class="ry-section">
     <div class="swiper-container swiper-container3" dir="rtl">
-        <p class="text-right ry-head-carosel"><span class="ry-ppaa">پرفروشترین ها </span>
-        </p>
+        <h2 class="text-right ry-head-carosel f-14"><h2 class="ry-ppaa">پرفروشترین ها </h2>
+        </h2>
         <div class="swiper-wrapper swiper-wrapper3">
             <?php
             global $product;

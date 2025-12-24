@@ -10,7 +10,7 @@ setPostViews(get_the_ID());
     <div>
         <div>
             <div class="ck-page-container ">
-                <div class="ck-page-show ">
+                <!-- <div class="ck-page-show ">
                     <div class="ck-page-show-container ck-col-container">
                         <ul>
                             <li><a><?php echo $t2; ?></a></li>
@@ -23,7 +23,7 @@ setPostViews(get_the_ID());
                         </ul>
                         <div class="clear"></div>
                     </div>
-                </div>
+                </div> -->
                 <div class="ck-page-content">
                     <div class="row" dir="rtl">
                         <div class="ck-page-rightsidebar">

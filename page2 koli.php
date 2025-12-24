@@ -90,7 +90,7 @@ Template Name: page2koli
                         </div>
                         <div class="ck-tozhihat-ketab ck-ketabhaye-moshabeh">
                             <div class="ck-tozihat-header">
-                                <p class="f-12 text-white">شاید شما اینها را هم دوست داشته باشید.</p>
+                                <p class="f-14 text-white px-1">شاید شما اینها را هم دوست داشته باشید.</p>
                             </div>
                             <div class="ck-tozih">
                                 <div class="swiper-container1" dir="rtl">

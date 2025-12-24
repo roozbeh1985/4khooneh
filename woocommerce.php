@@ -915,7 +915,7 @@ setPostViews(get_the_ID());
 
                                 <div class="ck-tozhihat-ketab ck-ketabhaye-moshabeh">
                                     <div class="ck-tozihat-header">
-                                        <p>شاید شما اینها را هم دوست داشته باشید.</p>
+                                        <p class="f-12 text-white">شاید شما اینها را هم دوست داشته باشید.</p>
                                     </div>
                                     <div class="ck-tozih">
                                         <script>

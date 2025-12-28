@@ -3666,7 +3666,7 @@ a:hover {
     text-align: left;
 }
 * {
-    font-family: iransans, serif;
+    font-family: iransans, serif!important;
 }
 
 .woocommerce .col2-set .col-1,

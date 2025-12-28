@@ -3774,12 +3774,13 @@ a:hover {
 .wpb_wrapper h3 {
     font-size: 18px;
     font-weight: bold;
-    
+    padding-right: 5px;
     color: #00afef;
 }
 
 .vc_toggle_content p {
     padding-right: 37px;
+    padding-bottom:5px ;
     line-height: 24px;
 }
 

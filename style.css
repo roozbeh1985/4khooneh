@@ -3767,6 +3767,30 @@ a:hover {
     box-shadow: 0 0 20px 2px #EBF1F5;
 }
 
+.wpb_wrapper h3{
+font-size:18px;
+font-weight:bold;
+    color: #00afef;
+}
+.vc_toggle_content p{
+    padding-right: 37px;
+    line-height: 24px;
+}
+.vc_toggle_title{
+padding-right:14px
+}
+.wpb_wrapper .addtoany_share_save_container{
+display:none
+}
+.vc_toggle_title h3:befor{
+    content: "\f059";
+    font-family: "Font Awesome 5 Free";
+    font-weight: bold;
+}
+.vc_toggle{
+    background-color: #efefef;
+}
+
 .ry-all-btn .col-lg-3 {
     padding: 0;
 }

@@ -3665,7 +3665,7 @@ a:hover {
 .woocommerce table.shop_table tbody th {
     text-align: left;
 }
-p,div,h1,h2,h3,h4,h5,h6,span,mark {
+p,div,h1,h2,h3,h4,h5,h6,mark {
     font-family: iransans, serif!important;
 }
 

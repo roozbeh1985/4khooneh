@@ -21,7 +21,7 @@
 
 <a href="<?php bloginfo('url') ?>/مصاحبه-با-رتبه-یک-الکتروتکنیک/">
     <div class="ck-page-right-menu-img">
-        <img alt="مصاحبه با رتبه های برتر کنکور الکتروتکنیک" src="https://4khooneh.org/wp-content/uploads/2022/12/hasanib.jpg">
+        <img alt="مصاحبه با رتبه های برتر کنکور الکتروتکنیک" src="https://4khooneh.org/wp-content/uploads/2026/01/IMG_20260105_093941_335.jpg">
     </div>
 </a>
 <a href="<?php bloginfo('url') ?>/مشاوره-های-هنرستان/">

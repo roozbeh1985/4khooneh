@@ -10,16 +10,7 @@ setPostViews(get_the_ID());
                     $title = $post->post_title;
                     ?>
                     <div class="ck-page-show-container ck-col-container">
-                        <ul>
-                            <li>
-                                <a><?php echo $title_parent = get_the_title($post->post_parent); ?></a>
-                            </li>
-                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                            <li>
-                                <a><?php the_title(); ?></a>
-                            </li>
-                        </ul>
-                        <div class="clear"></div>
+                        <?php ck_page_taxonomy_breadcrumb(); ?>
                     </div>
                 </div>
                 <div class="ck-page-content">

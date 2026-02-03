@@ -625,10 +625,10 @@ function success_message_after_payment($order_id)
     foreach ($order->get_items() as $item) {
         $product = $item->get_product();
         if (
-    $product &&
-    ($product->is_virtual() || $product->is_downloadable()) &&
-    $product->get_meta('_should_force_processing') === 'yes'
-) {
+            $product &&
+            ($product->is_virtual() || $product->is_downloadable()) &&
+            $product->get_meta('_should_force_processing') === 'yes'
+        ) {
             if ('completed' === $order->get_status()) {
                 $order->update_status('processing', 'محصول دانلودی یا مجازی: سفارش کامل نشد و در حال انجام باقی ماند.');
             }
@@ -745,46 +745,66 @@ function ry_show_all_meta_box()
     $custom_fields = get_post_meta($post->ID);
 
     echo '<div style="max-height:400px;overflow:auto;">';
+
     if ($custom_fields) {
         echo '<table style="width:100%;border-collapse:collapse;">';
-        echo '<tr><th style="border:1px solid #ccc;padding:5px;">Meta Key</th><th style="border:1px solid #ccc;padding:5px;">Meta Value</th></tr>';
+        echo '<tr>
+                <th style="border:1px solid #ccc;padding:5px;">Meta Key</th>
+                <th style="border:1px solid #ccc;padding:5px;">Meta Value</th>
+                <th style="border:1px solid #ccc;padding:5px;">Action</th>
+              </tr>';
+
         foreach ($custom_fields as $key => $values) {
-            if (strpos($key, '_') === 0 || stripos($key, 'yoast') !== false || stripos($key, 'wpdiscuz') !== false) {
+            if (
+                strpos($key, '_') === 0 ||
+                stripos($key, 'yoast') !== false ||
+                stripos($key, 'wpdiscuz') !== false
+            ) {
                 continue;
             }
 
             foreach ($values as $value) {
-                $field_name = 'ry_meta_' . md5($key);
 
-                // تست serialize
                 $decoded = @unserialize($value);
                 $is_serialized = ($decoded !== false || $value === 'b:0;');
 
                 echo '<tr>';
                 echo '<td style="border:1px solid #ccc;padding:5px;">' . esc_html($key) . '</td>';
+
                 echo '<td style="border:1px solid #ccc;padding:5px;">';
 
                 if ($is_serialized) {
-                    echo '<textarea style="width:100%;height:120px;" name="' . esc_attr($field_name) . '">' . esc_textarea(implode("\n", (array) $decoded)) . '</textarea>';
-                    echo '<input type="hidden" name="' . esc_attr($field_name . "_serialized") . '" value="1">';
+                    echo '<textarea class="ry-meta-value" data-serialized="1" data-key="' . esc_attr($key) . '" style="width:100%;height:120px;">' .
+                        esc_textarea(implode("\n", (array) $decoded)) .
+                        '</textarea>';
                 } else {
-                    echo '<textarea style="width:100%;height:60px;" name="' . esc_attr($field_name) . '">' . esc_textarea($value) . '</textarea>';
-                    echo '<input type="hidden" name="' . esc_attr($field_name . "_serialized") . '" value="0">';
+                    echo '<textarea class="ry-meta-value" data-serialized="0" data-key="' . esc_attr($key) . '" style="width:100%;height:60px;">' .
+                        esc_textarea($value) .
+                        '</textarea>';
                 }
 
-                echo '<input type="hidden" name="' . esc_attr($field_name . "_key") . '" value="' . esc_attr($key) . '">';
                 echo '</td>';
+
+                echo '<td style="border:1px solid #ccc;padding:5px;text-align:center;">
+                        <button type="button"
+                                class="button button-primary ry-save-meta"
+                                data-post-id="' . esc_attr($post->ID) . '">
+                            ذخیره
+                        </button>
+                        <span class="ry-save-status"></span>
+                      </td>';
+
                 echo '</tr>';
             }
         }
+
         echo '</table>';
     } else {
         echo '<p>هیچ متایی برای این نوشته وجود ندارد.</p>';
     }
+
     echo '</div>';
 }
-
-
 function ry_register_all_meta_box()
 {
     $screens = ['post', 'page'];
@@ -800,6 +820,79 @@ function ry_register_all_meta_box()
     }
 }
 add_action('add_meta_boxes', 'ry_register_all_meta_box');
+
+add_action('admin_footer', function () {
+    ?>
+    <script>
+        jQuery(document).ready(function ($) {
+
+            $('.ry-save-meta').on('click', function () {
+
+                const button = $(this);
+                const row = button.closest('tr');
+                const textarea = row.find('.ry-meta-value');
+
+                const postId = button.data('post-id');
+                const metaKey = textarea.data('key');
+                const isSerialized = textarea.data('serialized');
+                const value = textarea.val();
+
+                const status = row.find('.ry-save-status');
+                status.text('⏳');
+
+                $.post(ajaxurl, {
+                    action: 'ry_update_single_meta',
+                    post_id: postId,
+                    meta_key: metaKey,
+                    meta_value: value,
+                    serialized: isSerialized,
+                    _ajax_nonce: '<?php echo wp_create_nonce('ry_meta_nonce'); ?>'
+                }, function (response) {
+                    if (response.success) {
+                        status.text('✅');
+                    } else {
+                        status.text('❌');
+                    }
+                });
+
+            });
+
+        });
+    </script>
+    <?php
+});
+add_action('wp_ajax_ry_update_single_meta', 'ry_update_single_meta');
+
+function ry_update_single_meta()
+{
+    check_ajax_referer('ry_meta_nonce');
+
+    if (!current_user_can('edit_posts')) {
+        wp_send_json_error('permission_denied');
+    }
+
+    $post_id = intval($_POST['post_id']);
+    $meta_key = sanitize_text_field($_POST['meta_key']);
+    $value = wp_unslash($_POST['meta_value']);
+    $serialized = intval($_POST['serialized']);
+
+    if ($serialized) {
+        $lines = array_filter(array_map('trim', explode("\n", $value)));
+        $value = serialize($lines);
+    }
+
+    update_post_meta($post_id, $meta_key, $value);
+
+    wp_send_json_success();
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -853,20 +946,94 @@ add_action('admin_head', function () {
     </style>';
 });
 
-function add_raychat_script() {
-    ?>
-    <script type="text/javascript">
-      window.RAYCHAT_TOKEN = "98e588f2-fda8-4c87-a2a0-73258a10f829";
-      (function () {
-        var d = document;
-        var s = d.createElement("script");
-        s.src = "https://widget-react.raychat.io/install/widget.js";
-        s.async = 1;
-        d.getElementsByTagName("head")[0].appendChild(s);
-      })();
-    </script>
-    <?php
+function add_raychat_widget()
+{
+    // Register a dummy script handle
+    wp_register_script('raychat-widget', '', [], null, false);
+
+    // Enqueue the script
+    wp_enqueue_script('raychat-widget');
+
+    // Add inline script
+    wp_add_inline_script('raychat-widget', '
+        window.RAYCHAT_TOKEN = "98e588f2-fda8-4c87-a2a0-73258a10f829";
+        (function () {
+            var d = document;
+            var s = d.createElement("script");
+            s.src = "https://widget-react.raychat.io/install/widget.js";
+            s.async = true;
+            d.getElementsByTagName("head")[0].appendChild(s);
+        })();
+    ');
 }
-add_action('wp_head', 'add_raychat_script');
+add_action('wp_enqueue_scripts', 'add_raychat_widget');
+
+
+function add_taxonomy_to_pages() {
+    register_taxonomy(
+        'page_category',
+        'page',
+        [
+            'label' => 'دسته بندی برگه ها',
+            'hierarchical' => true,
+            'rewrite' => [
+                'slug' => 'cat',
+                'with_front' => false,
+            ],
+            'show_admin_column' => true,
+        ]
+    );
+}
+add_action('init', 'add_taxonomy_to_pages');
+
+function ck_page_taxonomy_breadcrumb() {
+    global $post;
+
+    if (!is_page()) {
+        return;
+    }
+
+    echo '<div class="ck-page-show-container ck-col-container">';
+    echo '<ul>';
+
+    // Home link
+    echo '<li><a href="' . home_url() . '">خانه</a></li>';
+    echo '<i class="fa fa-chevron-left" aria-hidden="true"></i>';
+
+    // Get taxonomy terms
+    $terms = get_the_terms($post->ID, 'page_category');
+
+    if ($terms && !is_wp_error($terms)) {
+
+        // Pick the first assigned term
+        $term = array_shift($terms);
+
+        // Get term parents (hierarchy)
+        $parents = array_reverse(get_ancestors($term->term_id, 'page_category'));
+
+        foreach ($parents as $parent_id) {
+            $parent = get_term($parent_id, 'page_category');
+
+            // Build clean URL without /cat
+            $parent_url = home_url('/' . $parent->slug . '/');
+
+            echo '<li><a href="' . esc_url($parent_url) . '">' . esc_html($parent->name) . '</a></li>';
+            echo '<i class="fa fa-chevron-left" aria-hidden="true"></i>';
+        }
+
+        // Current term (without /cat)
+        $term_url = home_url('/' . $term->slug . '/');
+        echo '<li><a href="' . esc_url($term_url) . '">' . esc_html($term->name) . '</a></li>';
+        echo '<i class="fa fa-chevron-left" aria-hidden="true"></i>';
+    }
+
+    // Current page title
+    echo '<li><span>' . get_the_title() . '</span></li>';
+
+    echo '</ul>';
+    echo '<div class="clear"></div>';
+    echo '</div>';
+}
+
 
 ?>

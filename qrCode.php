@@ -16,7 +16,7 @@ setPostViews(get_the_ID());
                 padding: 10px;
             }
             #player{
-                max-height: 100%!important;
+                max-height: max-content;
             }
         </style>
         <div class="ck-page-container ">
@@ -28,7 +28,7 @@ setPostViews(get_the_ID());
                     </div>
                     <article class="ck-page-article">
                         <h1 class="text-center">پخش آنلاین ویدئو</h1>
-                        <video id="player" class="w-100" style="max-height: 348px;" controls autoplay></video>
+                        <video id="player" class="w-100"  controls autoplay></video>
                         <!-- img -->
                          <a href="https://ketabonline.ir/">
                             <img class="w-100 mt-2 rounded" 

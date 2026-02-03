@@ -4,14 +4,14 @@
 <head>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-85TD7Y1BB7"></script>
-    <script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-85TD7Y1BB7"></script> -->
+    <!-- <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-85TD7Y1BB7');
-    </script>
+    </script> -->
     <meta charset="UTF-8">
     <title><?php wp_title(''); ?></title>
     <meta name="author" content="roozbeh yeganeh 09125871319" />
@@ -21,10 +21,11 @@
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/ck-menustyle.css?v=1.0.0.5">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/examples.css?v=1.0.0.2" />
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/style.css?v=1.9.4.090">
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/style.css?v=1.9.4.091">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/swiper/css/swiper.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="enamad" content="20383836" /> 
     <script src="<?php bloginfo('template_url'); ?>/js/jquery.lazy.min.js"></script>
     <link rel="icon" type="image/x-icon" href="https://4khooneh.org/favicon.ico">
 
@@ -52,9 +53,9 @@
 
     <?php wp_head(); ?>
 
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/risponsive.css?v=1.3.1.56">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111352272-1"></script>
-    <script>
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/risponsive.css?v=1.3.1.60">
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111352272-1"></script> -->
+    <!-- <script>
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
@@ -64,7 +65,7 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-111352272-1');
-    </script>
+    </script> -->
     <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
     <script src="<?php bloginfo('template_url'); ?>/bootstrap/js/bootstrap.min.js"></script>
 </head>

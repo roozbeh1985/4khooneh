@@ -29,6 +29,9 @@ Version: 1.0
     font-weight: normal;
     font-style: normal
 }
+.swiper-wrapper{
+    height:auto!important;
+}
 
 .f-12 {
     font-size: 12px;
